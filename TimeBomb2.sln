@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBomb2", "TimeBomb2\TimeBomb2.csproj", "{468F6028-58AC-4482-B8EC-A6F2234E129F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{468F6028-58AC-4482-B8EC-A6F2234E129F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{468F6028-58AC-4482-B8EC-A6F2234E129F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{468F6028-58AC-4482-B8EC-A6F2234E129F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{468F6028-58AC-4482-B8EC-A6F2234E129F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
