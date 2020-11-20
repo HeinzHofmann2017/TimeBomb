@@ -7,7 +7,6 @@
     <e p="C:\Users\hohe\source\repos\TimeBomb2" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="TimeBomb2" t="IncludeRecursive">
-        <e p=".gitignore" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -183,6 +182,9 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Repositories" t="Include">
+          <e p="TimeBombRepository.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="TimeBomb2.csproj" t="IncludeRecursive" />

@@ -10,6 +10,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/TimeBomb2/Data/Access/DocumentStoreHolder.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1kTj06OOTJGmtEwIe1D6PRnUxNu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -61,13 +69,14 @@
       <option name="presentableId" value="Default" />
       <updated>1605731251377</updated>
       <workItem from="1605731257459" duration="615000" />
+      <workItem from="1605878420808" duration="1248000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
