@@ -129,10 +129,6 @@ namespace TimeBomb2IntegrationTests.Repositories
                         HiddenPlayCards = new List<PlayCard>
                         {
                             PlayCard.Bomb
-                        },
-                        RevealedPlayCards = new List<PlayCard>
-                        {
-                            PlayCard.Success
                         }
                     },
                     new Player
@@ -144,24 +140,30 @@ namespace TimeBomb2IntegrationTests.Repositories
                         HiddenPlayCards = new List<PlayCard>
                         {
                             PlayCard.Success
-                        },
-                        RevealedPlayCards = new List<PlayCard>
-                        {
-                            PlayCard.Safe
                         }
                     }
                 },
-                RevealedCards = new List<PlayCard>
+                RevealedPlayCards = new List<RevealedPlayCard>
                 {
-                    PlayCard.Success,
-                    PlayCard.Safe,
-                    PlayCard.Success
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Safe,
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                    }
                 },
-                Started = true
+                Started = true,
+                Ended = true
             };
 
             // Act
-            TimeBombRepository.UpdateGame(newGame.GameId, newGame.Players, newGame.RevealedCards, newGame.Started);
+            TimeBombRepository.UpdateGame(newGame.GameId, newGame.Players, newGame.RevealedPlayCards, newGame.Started, newGame.Ended);
 
             // Assert
             Thread.Sleep(1000);
@@ -180,21 +182,16 @@ namespace TimeBomb2IntegrationTests.Repositories
                 fabiPlayer.HiddenPlayCards.ShouldContain(PlayCard.Success);
                 fabiPlayer.HiddenPlayCards.ShouldNotContain(PlayCard.Bomb);
                 fabiPlayer.HiddenPlayCards.ShouldNotContain(PlayCard.Safe);
-                fabiPlayer.RevealedPlayCards.ShouldContain(PlayCard.Safe);
-                fabiPlayer.RevealedPlayCards.ShouldNotContain(PlayCard.Bomb);
-                fabiPlayer.RevealedPlayCards.ShouldNotContain(PlayCard.Success);
                 heinzPlayer.HiddenPlayCards.ShouldContain(PlayCard.Bomb);
                 heinzPlayer.HiddenPlayCards.ShouldNotContain(PlayCard.Success);
                 heinzPlayer.HiddenPlayCards.ShouldNotContain(PlayCard.Safe);
-                heinzPlayer.RevealedPlayCards.ShouldContain(PlayCard.Success);
-                heinzPlayer.RevealedPlayCards.ShouldNotContain(PlayCard.Bomb);
-                heinzPlayer.RevealedPlayCards.ShouldNotContain(PlayCard.Safe);
                 
-                loadedGame.RevealedCards.ShouldContain(PlayCard.Safe);
-                loadedGame.RevealedCards.ShouldContain(PlayCard.Success);
-                loadedGame.RevealedCards.ShouldNotContain(PlayCard.Bomb);
+                loadedGame.RevealedPlayCards.ShouldContain(c => c.Card == PlayCard.Safe);
+                loadedGame.RevealedPlayCards.ShouldContain(c => c.Card == PlayCard.Success);
+                loadedGame.RevealedPlayCards.ShouldNotContain(c => c.Card == PlayCard.Bomb);
 
                 loadedGame.Started.ShouldBeTrue();
+                loadedGame.Ended.ShouldBeTrue();
             }
         }
 
@@ -214,7 +211,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             Thread.Sleep(1000);
 
             // Act
-            TimeBombRepository.UpdateGame(gameId, null, null, null);
+            TimeBombRepository.UpdateGame(gameId, null, null, null, null);
 
             // Assert
             Thread.Sleep(1000);
@@ -223,7 +220,8 @@ namespace TimeBomb2IntegrationTests.Repositories
                 var loadedGame = session.Query<Game>().FirstOrDefault(g => g.GameId == gameId).ShouldNotBeNull();
                 loadedGame.Players.ShouldBeNull();
                 loadedGame.Started.ShouldBeFalse();
-                loadedGame.RevealedCards.ShouldBeNull();
+                loadedGame.Ended.ShouldBeFalse();
+                loadedGame.RevealedPlayCards.ShouldBeNull();
             }
         }
     }

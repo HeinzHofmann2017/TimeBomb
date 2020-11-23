@@ -172,6 +172,7 @@
           <e p="Game.cs" t="Include" />
           <e p="PlayCard.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="RevealedCard.cs" t="Include" />
           <e p="RoleCard.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -193,6 +194,9 @@
         </e>
         <e p="Repositories" t="Include">
           <e p="TimeBombRepository.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="TimeBombService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="TimeBomb2.csproj" t="IncludeRecursive" />

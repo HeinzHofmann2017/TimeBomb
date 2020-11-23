@@ -33,7 +33,7 @@ namespace TimeBomb2.Repositories
             return game != null;
         }
 
-        public static void UpdateGame(Guid gameId, List<Player> players, List<PlayCard> revealedCards, bool? started)
+        public static Game UpdateGame(Guid gameId, List<Player> players, List<RevealedPlayCard> revealedCards, bool? started, bool? ended)
         {
             var store = DocumentStoreHolder.Store;
             using var session = store.OpenSession();
@@ -43,18 +43,24 @@ namespace TimeBomb2.Repositories
             {
                 existingGame.Players = players;
             }
+
+            if (revealedCards != null)
+            {
+                existingGame.RevealedPlayCards = revealedCards;   
+            }
             
             if (started != null)
             {
                 existingGame.Started = (bool)started;
             }
 
-            if (revealedCards != null)
+            if (ended != null)
             {
-                existingGame.RevealedCards = revealedCards;   
+                existingGame.Ended = (bool) ended;
             }
             
             session.SaveChanges();
+            return existingGame;
         }
     }
 }

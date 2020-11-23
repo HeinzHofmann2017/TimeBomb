@@ -10,6 +10,5 @@ namespace TimeBomb.Data
         public bool HoldsNipper { get; set; } = false;
         public RoleCard RoleCard { get; set; }
         public List<PlayCard> HiddenPlayCards { get; set; }
-        public List<PlayCard> RevealedPlayCards { get; set; }
     }
 }
