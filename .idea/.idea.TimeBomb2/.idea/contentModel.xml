@@ -215,7 +215,6 @@
           <e p="TimeBombRepositoryTests.cs" t="Include" />
         </e>
         <e p="TimeBomb2IntegrationTests.csproj" t="IncludeRecursive" />
-        <e p="UnitTest1.cs" t="Include" />
       </e>
     </e>
   </component>
