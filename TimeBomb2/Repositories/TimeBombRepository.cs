@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TimeBomb.Data;
 using TimeBomb2.Data.Access;
 
@@ -32,14 +33,27 @@ namespace TimeBomb2.Repositories
             return game != null;
         }
 
-        public static void UpdateGame(Game updatedGame)
+        public static void UpdateGame(Guid gameId, List<Player> players, List<PlayCard> revealedCards, bool? started)
         {
             var store = DocumentStoreHolder.Store;
             using var session = store.OpenSession();
-            var existingGame = session.Load<Game>(updatedGame.GameId.ToString());
-            existingGame.Started = updatedGame.Started;
-            existingGame.RevealedCards = updatedGame.RevealedCards;
-            existingGame.Players = updatedGame.Players;
+            var existingGame = session.Load<Game>(gameId.ToString());
+
+            if (players != null)
+            {
+                existingGame.Players = players;
+            }
+            
+            if (started != null)
+            {
+                existingGame.Started = (bool)started;
+            }
+
+            if (revealedCards != null)
+            {
+                existingGame.RevealedCards = revealedCards;   
+            }
+            
             session.SaveChanges();
         }
     }
