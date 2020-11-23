@@ -4,28 +4,46 @@
     <projectFile>TimeBomb2/TimeBomb2.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="" />
+    <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/TimeBomb2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/TimeBomb2.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Access/DocumentStoreHolder.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2IntegrationTests/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2IntegrationTests/Repositories/TimeBombRepositoryTests.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1kTj06OOTJGmtEwIe1D6PRnUxNu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34950384" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29988974" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.TimeBomb2: IIS Express">
@@ -69,7 +87,9 @@
       <option name="presentableId" value="Default" />
       <updated>1605731251377</updated>
       <workItem from="1605731257459" duration="615000" />
-      <workItem from="1605878420808" duration="1248000" />
+      <workItem from="1605878420808" duration="10906000" />
+      <workItem from="1605916049047" duration="137000" />
+      <workItem from="1605916353573" duration="2269000" />
     </task>
     <servers />
   </component>
@@ -82,21 +102,176 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1605767766500">
+    <state x="835" y="436" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.ChooseSilentCodeCleanupProfileDialog" timestamp="1605911057251">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605767766500" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1605767766500">
+    <state x="835" y="436" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.ChooseSilentCodeCleanupProfileDialog/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605911057251" />
+    <state width="440" height="464" key="DebuggerActiveHint" timestamp="1605912256684">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605767766500" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1605767766500">
+    <state width="440" height="464" key="DebuggerActiveHint/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605912256684" />
+    <state width="938" height="375" key="GridCell.Tab.0.bottom" timestamp="1605917481589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605767766500" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1605767766500">
+    <state width="938" height="375" key="GridCell.Tab.0.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917481589" />
+    <state width="938" height="375" key="GridCell.Tab.0.center" timestamp="1605917481589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605767766500" />
+    <state width="938" height="375" key="GridCell.Tab.0.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917481589" />
+    <state width="938" height="375" key="GridCell.Tab.0.left" timestamp="1605917481589">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.0.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917481589" />
+    <state width="938" height="375" key="GridCell.Tab.0.right" timestamp="1605917481589">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.0.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917481589" />
+    <state width="938" height="375" key="GridCell.Tab.1.bottom" timestamp="1605917164025">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.1.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917164025" />
+    <state width="938" height="375" key="GridCell.Tab.1.center" timestamp="1605917164025">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.1.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917164025" />
+    <state width="938" height="375" key="GridCell.Tab.1.left" timestamp="1605917164025">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.1.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917164025" />
+    <state width="938" height="375" key="GridCell.Tab.1.right" timestamp="1605917164025">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.1.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917164025" />
+    <state width="938" height="375" key="GridCell.Tab.2.bottom" timestamp="1605917483284">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.2.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917483284" />
+    <state width="938" height="375" key="GridCell.Tab.2.center" timestamp="1605917483284">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.2.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917483284" />
+    <state width="938" height="375" key="GridCell.Tab.2.left" timestamp="1605917483284">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.2.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917483284" />
+    <state width="938" height="375" key="GridCell.Tab.2.right" timestamp="1605917483284">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.2.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917483284" />
+    <state width="938" height="375" key="GridCell.Tab.3.bottom" timestamp="1605917482736">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.3.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917482736" />
+    <state width="938" height="375" key="GridCell.Tab.3.center" timestamp="1605917482736">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.3.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917482736" />
+    <state width="938" height="375" key="GridCell.Tab.3.left" timestamp="1605917482736">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.3.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917482736" />
+    <state width="938" height="375" key="GridCell.Tab.3.right" timestamp="1605917482736">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.3.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917482736" />
+    <state width="938" height="375" key="GridCell.Tab.4.bottom" timestamp="1605917164025">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.4.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917164025" />
+    <state width="938" height="375" key="GridCell.Tab.4.center" timestamp="1605917164025">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.4.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917164025" />
+    <state width="938" height="375" key="GridCell.Tab.4.left" timestamp="1605917164025">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.4.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917164025" />
+    <state width="938" height="375" key="GridCell.Tab.4.right" timestamp="1605917164025">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="375" key="GridCell.Tab.4.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917164025" />
+    <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size" timestamp="1605881960087">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605881960087" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1605917154399">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605917154399" />
+    <state x="1989" y="-11" width="1398" height="715" maximized="true" key="dock-window-1" timestamp="1605916650591">
+      <screen x="1920" y="0" width="1536" height="848" />
+    </state>
+    <state x="1989" y="-11" width="1398" height="715" maximized="true" key="dock-window-1/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1605916650591" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs</url>
+          <line>23</line>
+          <properties documentPath="C:\Users\hohe\source\repos\TimeBomb2\TimeBomb2\Repositories\TimeBombRepository.cs" initialLine="27">
+            <startOffsets>
+              <option value="627" />
+            </startOffsets>
+            <endOffsets>
+              <option value="665" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs</url>
+          <line>36</line>
+          <properties documentPath="C:\Users\hohe\source\repos\TimeBomb2\TimeBomb2\Repositories\TimeBombRepository.cs" initialLine="40">
+            <startOffsets>
+              <option value="1015" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1053" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\hohe\source\repos\TimeBomb2\TimeBomb2\Repositories\TimeBombRepository.cs" initialLine="30">
+            <startOffsets>
+              <option value="861" />
+            </startOffsets>
+            <endOffsets>
+              <option value="892" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs</url>
+          <line>10</line>
+          <properties documentPath="C:\Users\hohe\source\repos\TimeBomb2\TimeBomb2\Repositories\TimeBombRepository.cs" initialLine="10">
+            <startOffsets>
+              <option value="223" />
+            </startOffsets>
+            <endOffsets>
+              <option value="313" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TimeBomb2IntegrationTests/Repositories/TimeBombRepositoryTests.cs</url>
+          <line>160</line>
+          <properties documentPath="C:\Users\hohe\source\repos\TimeBomb2\TimeBomb2IntegrationTests\Repositories\TimeBombRepositoryTests.cs" initialLine="160">
+            <startOffsets>
+              <option value="4806" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4845" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
