@@ -33,7 +33,7 @@ namespace TimeBomb2.Repositories
             return game != null;
         }
 
-        public static Game UpdateGame(Guid gameId, List<Player> players, List<RevealedPlayCard> revealedCards, bool? started, bool? ended)
+        public static Game UpdateGame(Guid gameId, List<Player> players, List<RevealedPlayCard> revealedCards, bool? started)
         {
             var store = DocumentStoreHolder.Store;
             using var session = store.OpenSession();
@@ -52,11 +52,6 @@ namespace TimeBomb2.Repositories
             if (started != null)
             {
                 existingGame.Started = (bool)started;
-            }
-
-            if (ended != null)
-            {
-                existingGame.Ended = (bool) ended;
             }
             
             session.SaveChanges();

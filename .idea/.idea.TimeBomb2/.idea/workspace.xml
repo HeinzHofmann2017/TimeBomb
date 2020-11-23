@@ -14,13 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TimeBomb2/Data/RevealedCard.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/Data/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Data/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimeBomb2IntegrationTests/Repositories/TimeBombRepositoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2IntegrationTests/Repositories/TimeBombRepositoryTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,10 +35,10 @@
         <option value="$PROJECT_DIR$/TimeBomb2IntegrationTests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Player.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/RevealedCard.cs" />
-        <option value="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2IntegrationTests/Repositories/TimeBombRepositoryTests.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" />
       </list>
     </option>
   </component>
@@ -103,7 +100,7 @@
       <workItem from="1605878420808" duration="10906000" />
       <workItem from="1605916049047" duration="137000" />
       <workItem from="1605916353573" duration="2269000" />
-      <workItem from="1606150223565" duration="9189000" />
+      <workItem from="1606150223565" duration="13356000" />
     </task>
     <servers />
   </component>
