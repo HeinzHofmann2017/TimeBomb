@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Shouldly;
 using TimeBomb.Data;
 using TimeBomb2.Data;
 using TimeBomb2.Repositories;
@@ -74,12 +75,33 @@ namespace TimeBomb2.Services
                 Card = revealedPlayCard,
                 NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
             });
-            var newGame = TimeBombRepository.UpdateGame(game.GameId, players, revealedPlayCards, null);
+            var updatedGame = TimeBombRepository.UpdateGame(game.GameId, players, revealedPlayCards, null);
 
-            // Todo: Mix Cards, if new Round starts with this nip
+            if (!updatedGame.NewRoundStartsNow())
+            {
+                // Todo: return Dto instead of Game
+                return updatedGame;
+            }
+            
+            var updatedPlayers = updatedGame.Players;
+            updatedPlayers = MixHiddenCards(updatedPlayers);
+            // Todo: return Dto instead of Game
+            return TimeBombRepository.UpdateGame(updatedGame.GameId, updatedPlayers, null, null);
+        }
 
-            // Todo: Don't return here the game. Return here the Dto.
-            return newGame;
+        private static List<Player> MixHiddenCards(List<Player> players)
+        {
+            var listOfAllHiddenCards = players.SelectMany(p => p.HiddenPlayCards).ToList();
+            players.ForEach(p => p.HiddenPlayCards = new List<PlayCard>());
+            var numberOfPlayCardsPerPlayer = listOfAllHiddenCards.Count / players.Count;
+            players.ForEach(p =>
+            {
+                for (int i = 0; i < numberOfPlayCardsPerPlayer; ++i)
+                {
+                    p.HiddenPlayCards.Add(listOfAllHiddenCards.RemoveAndGetRandomCardFromList());
+                }
+            });
+            return players;
         }
 
         private static void AssignNipperRandomToOnePlayer(this IList<Player> players)

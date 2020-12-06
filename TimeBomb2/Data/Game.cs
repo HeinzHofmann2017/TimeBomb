@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using TimeBomb.Data;
 
@@ -33,6 +34,11 @@ namespace TimeBomb2.Data
         public bool PlayerIdMatchesWithName(Guid playerId, string playerName)
         {
             return Players.FirstOrDefault(p => p.PlayerId == playerId)?.Name == playerName;
+        }
+
+        public bool NewRoundStartsNow()
+        {
+            return RevealedPlayCards.Count % Players.Count == 0;
         }
         
         public int GetGameRound()

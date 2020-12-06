@@ -14,8 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/Data/Dtos/OtherPlayerDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Data/Dtos/OtherPlayerDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/Services/PlayerSpecificGameDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Services/PlayerSpecificGameDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,9 +35,9 @@
         <option value="$PROJECT_DIR$/TimeBomb2/Data/RevealedCard.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2IntegrationTests/Repositories/TimeBombRepositoryTests.cs" />
-        <option value="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Services/PlayerSpecificGameDto.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Dtos/OtherPlayerDto.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" />
       </list>
     </option>
@@ -101,7 +101,7 @@
       <workItem from="1605916049047" duration="137000" />
       <workItem from="1605916353573" duration="2269000" />
       <workItem from="1606150223565" duration="13379000" />
-      <workItem from="1607255744490" duration="4012000" />
+      <workItem from="1607255744490" duration="5727000" />
     </task>
     <servers />
   </component>
