@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Raven.Client.Documents.Indexes;
 using TimeBomb.Data;
 using TimeBomb2.Data;
 using TimeBomb2.Repositories;
@@ -15,12 +14,25 @@ namespace TimeBomb2.Services
             return TimeBombRepository.CreateGameAndGetItsId();
         }
 
-        public static PlayerSpecificGameDto RegisterNewPlayer()
+        public static PlayerSpecificGameDto RegisterNewPlayer(Guid gameId, string name)
         {
-            // Todo: RegisterPlayer and return player specific Game Dto.
-            return null;
+            var game = TimeBombRepository.GetGameById(gameId);
+            var playerId = Guid.NewGuid();
+            if (game.Started || game.Players.Count >= 6)
+                return null;
+
+            var players = game.Players;
+            players.Add(new Player()
+            {
+                PlayerId = playerId,
+                Name = name
+            });
+            
+            var newGame = TimeBombRepository.UpdateGame(gameId, players, null, null);
+
+            return new PlayerSpecificGameDto(newGame, playerId);
         }
-        
+
         public static Game StartGame(Guid gameId)
         {
             var game = TimeBombRepository.GetGameById(gameId);
@@ -55,7 +67,7 @@ namespace TimeBomb2.Services
                 .First(p => p.Name == toBeNippedPlayerName)
                 .HiddenPlayCards
                 .RemoveAndGetRandomCardFromList();
-            
+
             revealedPlayCards.Add(new RevealedPlayCard
             {
                 Round = game.GetGameRound(),
@@ -63,9 +75,9 @@ namespace TimeBomb2.Services
                 NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
             });
             var newGame = TimeBombRepository.UpdateGame(game.GameId, players, revealedPlayCards, null);
-            
+
             // Todo: Mix Cards, if new Round starts with this nip
-            
+
             // Todo: Don't return here the game. Return here the Dto.
             return newGame;
         }
