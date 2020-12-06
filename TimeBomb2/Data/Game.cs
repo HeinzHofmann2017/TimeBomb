@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TimeBomb.Data;
 
-namespace TimeBomb.Data
+namespace TimeBomb2.Data
 {
     public class Game
     {
@@ -54,6 +55,11 @@ namespace TimeBomb.Data
                 return 5;
             throw new ArgumentOutOfRangeException(
                 $"With {nrOfPlayers} Players and {nrOfRevealedCards} Revealed Cards, no round can be calculated.");
+        }
+
+        public bool IsItTimeToMixCardsAgain()
+        {
+            // Todo: Implement Method
         }
     }
 }

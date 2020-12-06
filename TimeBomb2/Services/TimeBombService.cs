@@ -1,13 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Raven.Client.Documents.Indexes;
 using TimeBomb.Data;
+using TimeBomb2.Data;
 using TimeBomb2.Repositories;
 
 namespace TimeBomb2.Services
 {
     public static class TimeBombService
     {
+        public static Guid CreateGame()
+        {
+            return TimeBombRepository.CreateGameAndGetItsId();
+        }
+
+        public static PlayerSpecificGameDto RegisterNewPlayer()
+        {
+            // Todo: RegisterPlayer and return player specific Game Dto.
+            return null;
+        }
+        
         public static Game StartGame(Guid gameId)
         {
             var game = TimeBombRepository.GetGameById(gameId);
@@ -49,7 +62,12 @@ namespace TimeBomb2.Services
                 Card = revealedPlayCard,
                 NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
             });
-            return TimeBombRepository.UpdateGame(game.GameId, players, revealedPlayCards, null);
+            var newGame = TimeBombRepository.UpdateGame(game.GameId, players, revealedPlayCards, null);
+            
+            // Todo: Mix Cards, if new Round starts with this nip
+            
+            // Todo: Don't return here the game. Return here the Dto.
+            return newGame;
         }
 
         private static void AssignNipperRandomToOnePlayer(this IList<Player> players)
