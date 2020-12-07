@@ -34,10 +34,10 @@ namespace TimeBomb2.Services
             return new PlayerSpecificGameDto(newGame, playerId);
         }
 
-        public static Game StartGame(Guid gameId)
+        public static PlayerSpecificGameDto StartGame(Guid gameId, Guid playerId)
         {
             var game = TimeBombRepository.GetGameById(gameId);
-            if (game.Started) return game;
+            if (game.Started) return new PlayerSpecificGameDto(game,playerId);
 
             var players = game.Players;
             var roleCards = GetRoleCardsForSpecificAmountOfPlayers(players.Count).ToList();
@@ -50,17 +50,18 @@ namespace TimeBomb2.Services
             });
             players.AssignNipperRandomToOnePlayer();
 
-            return TimeBombRepository.UpdateGame(gameId, players, new List<RevealedPlayCard>(), true);
+            var startedGame = TimeBombRepository.UpdateGame(gameId, players, new List<RevealedPlayCard>(), true);
+            return new PlayerSpecificGameDto(startedGame, playerId);
         }
 
-        public static Game NipCard(Guid gameId, Guid nippingPlayerId, string toBeNippedPlayerName)
+        public static PlayerSpecificGameDto NipCard(Guid gameId, Guid nippingPlayerId, string toBeNippedPlayerName)
         {
             var game = TimeBombRepository.GetGameById(gameId);
             if (!game.IsRunning()
                 || !game.PlayerHoldsNipper(nippingPlayerId)
                 || !game.PlayerHasRemainingHiddenCards(toBeNippedPlayerName)
                 || game.PlayerIdMatchesWithName(nippingPlayerId, toBeNippedPlayerName))
-                return game;
+                return new PlayerSpecificGameDto(game, nippingPlayerId);
 
             var revealedPlayCards = game.RevealedPlayCards;
             var players = game.Players;
@@ -79,14 +80,14 @@ namespace TimeBomb2.Services
 
             if (!updatedGame.NewRoundStartsNow())
             {
-                // Todo: return Dto instead of Game
-                return updatedGame;
+                return new PlayerSpecificGameDto(updatedGame, nippingPlayerId);
             }
             
             var updatedPlayers = updatedGame.Players;
             updatedPlayers = MixHiddenCards(updatedPlayers);
-            // Todo: return Dto instead of Game
-            return TimeBombRepository.UpdateGame(updatedGame.GameId, updatedPlayers, null, null);
+            
+            var mixedGame = TimeBombRepository.UpdateGame(updatedGame.GameId, updatedPlayers, null, null);
+            return new PlayerSpecificGameDto(mixedGame, nippingPlayerId);
         }
 
         private static List<Player> MixHiddenCards(List<Player> players)
@@ -96,7 +97,7 @@ namespace TimeBomb2.Services
             var numberOfPlayCardsPerPlayer = listOfAllHiddenCards.Count / players.Count;
             players.ForEach(p =>
             {
-                for (int i = 0; i < numberOfPlayCardsPerPlayer; ++i)
+                for (var i = 0; i < numberOfPlayCardsPerPlayer; ++i)
                 {
                     p.HiddenPlayCards.Add(listOfAllHiddenCards.RemoveAndGetRandomCardFromList());
                 }
@@ -170,10 +171,10 @@ namespace TimeBomb2.Services
             }
         }
 
-        private static IEnumerable<TCardType> GetNCards<TCardType>(int numberOfSuccessCards, TCardType typeOfPlayCard)
+        private static IEnumerable<TCardType> GetNCards<TCardType>(int numberOfCards, TCardType cardSubType)
         {
             var cards = new List<TCardType>();
-            for (var i = 0; i < numberOfSuccessCards; i++) cards.Add(typeOfPlayCard);
+            for (var i = 0; i < numberOfCards; i++) cards.Add(cardSubType);
 
             return cards;
         }
