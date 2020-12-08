@@ -62,10 +62,5 @@ namespace TimeBomb2.Data
             throw new ArgumentOutOfRangeException(
                 $"With {nrOfPlayers} Players and {nrOfRevealedCards} Revealed Cards, no round can be calculated.");
         }
-
-        public bool IsItTimeToMixCardsAgain()
-        {
-            // Todo: Implement Method
-        }
     }
 }

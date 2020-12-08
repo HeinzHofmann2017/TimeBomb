@@ -83,10 +83,9 @@ namespace TimeBomb2.Services
                 return new PlayerSpecificGameDto(updatedGame, nippingPlayerId);
             }
             
-            var updatedPlayers = updatedGame.Players;
-            updatedPlayers = MixHiddenCards(updatedPlayers);
+            var playersWithMixedCards = MixHiddenCards(updatedGame.Players);
             
-            var mixedGame = TimeBombRepository.UpdateGame(updatedGame.GameId, updatedPlayers, null, null);
+            var mixedGame = TimeBombRepository.UpdateGame(updatedGame.GameId, playersWithMixedCards, null, null);
             return new PlayerSpecificGameDto(mixedGame, nippingPlayerId);
         }
 
