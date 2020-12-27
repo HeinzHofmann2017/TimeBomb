@@ -89,6 +89,11 @@ namespace TimeBomb2.Services
             return new PlayerSpecificGameDto(mixedGame, nippingPlayerId);
         }
 
+        public static PlayerSpecificGameDto GetActualGameState(Guid gameId, Guid playerId)
+        {
+            return new PlayerSpecificGameDto(TimeBombRepository.GetGameById(gameId),playerId);
+        }
+
         private static List<Player> MixHiddenCards(List<Player> players)
         {
             var listOfAllHiddenCards = players.SelectMany(p => p.HiddenPlayCards).ToList();
