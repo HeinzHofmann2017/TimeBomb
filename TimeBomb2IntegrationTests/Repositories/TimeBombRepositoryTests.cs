@@ -159,11 +159,11 @@ namespace TimeBomb2IntegrationTests.Repositories
                         Card = PlayCard.Success,
                     }
                 },
-                Started = true
+                IsStarted = true
             };
 
             // Act
-            TimeBombRepository.UpdateGame(newGame.GameId, newGame.Players, newGame.RevealedPlayCards, newGame.Started);
+            TimeBombRepository.UpdateGame(newGame.GameId, newGame.Players, newGame.RevealedPlayCards, newGame.IsStarted);
 
             // Assert
             Thread.Sleep(1000);
@@ -190,7 +190,7 @@ namespace TimeBomb2IntegrationTests.Repositories
                 loadedGame.RevealedPlayCards.ShouldContain(c => c.Card == PlayCard.Success);
                 loadedGame.RevealedPlayCards.ShouldNotContain(c => c.Card == PlayCard.Bomb);
 
-                loadedGame.Started.ShouldBeTrue();
+                loadedGame.IsStarted.ShouldBeTrue();
             }
         }
 
@@ -218,7 +218,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             {
                 var loadedGame = session.Query<Game>().FirstOrDefault(g => g.GameId == gameId).ShouldNotBeNull();
                 loadedGame.Players.ShouldBeNull();
-                loadedGame.Started.ShouldBeFalse();
+                loadedGame.IsStarted.ShouldBeFalse();
                 loadedGame.RevealedPlayCards.ShouldBeNull();
             }
         }

@@ -19,7 +19,7 @@ namespace TimeBomb2.Services
         {
             var game = TimeBombRepository.GetGameById(gameId);
             var playerId = Guid.NewGuid();
-            if (game.Started || game.Players.Count >= 6)
+            if (game.IsStarted || game.Players.Count >= 6)
                 return null;
 
             var players = game.Players;
@@ -37,7 +37,7 @@ namespace TimeBomb2.Services
         public static PlayerSpecificGameDto StartGame(Guid gameId, Guid playerId)
         {
             var game = TimeBombRepository.GetGameById(gameId);
-            if (game.Started) return new PlayerSpecificGameDto(game,playerId);
+            if (game.IsStarted) return new PlayerSpecificGameDto(game,playerId);
 
             var players = game.Players;
             var roleCards = GetRoleCardsForSpecificAmountOfPlayers(players.Count).ToList();

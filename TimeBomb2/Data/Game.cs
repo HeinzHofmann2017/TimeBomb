@@ -11,14 +11,22 @@ namespace TimeBomb2.Data
         public Guid GameId { get; set; } = new Guid();
         public List<Player> Players { get; set; }
         public List<RevealedPlayCard> RevealedPlayCards { get; set; }
-        public bool Started { get; set; } = false;
+        public bool IsStarted { get; set; } = false;
 
         public bool IsRunning()
         {
-            return Started
+            return IsStarted
                    && RevealedPlayCards.Count < 4 * Players.Count
                    && RevealedPlayCards.All(p => p.Card != PlayCard.Bomb)
                    && RevealedPlayCards.Select(p => p.Card == PlayCard.Success).Count() < Players.Count;
+        }
+
+        public bool IsFinished()
+        {
+            return IsStarted
+                   && (RevealedPlayCards.Count >= 4 * Players.Count
+                       || RevealedPlayCards.Any(p => p.Card == PlayCard.Bomb)
+                       || RevealedPlayCards.Select(p => p.Card == PlayCard.Success).Count() >= Players.Count);
         }
 
         public bool PlayerHoldsNipper(Guid playerId)

@@ -14,15 +14,17 @@ namespace TimeBomb2.Services
             GameId = game.GameId;
             OwnPlayer = game.Players.First(p => p.PlayerId == playerId);
             RevealedPlayCards = game.RevealedPlayCards;
-            Started = game.Started;
+            IsStarted = game.IsStarted;
             OtherPlayers = GetOtherPlayers(game, playerId);
+            IsFinished = game.IsFinished();
         }
         
         public Guid GameId { get; set; }
         public List<OtherPlayerDto> OtherPlayers { get; set; }
         public Player OwnPlayer { get; set; }
         public List<RevealedPlayCard> RevealedPlayCards { get; set; }
-        public bool Started { get; set; }
+        public bool IsStarted { get; set; }
+        public bool IsFinished { get; set; }
 
         private List<OtherPlayerDto> GetOtherPlayers(Game game, Guid playerId)
         {

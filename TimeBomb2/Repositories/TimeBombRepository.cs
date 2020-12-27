@@ -52,7 +52,7 @@ namespace TimeBomb2.Repositories
             
             if (started != null)
             {
-                existingGame.Started = (bool)started;
+                existingGame.IsStarted = (bool)started;
             }
             
             session.SaveChanges();
