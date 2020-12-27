@@ -16,17 +16,32 @@ namespace TimeBomb2.Data
         public bool IsRunning()
         {
             return IsStarted
-                   && RevealedPlayCards.Count < 4 * Players.Count
-                   && RevealedPlayCards.All(p => p.Card != PlayCard.Bomb)
-                   && RevealedPlayCards.Select(p => p.Card == PlayCard.Success).Count() < Players.Count;
+                   && !IsBombExploded()
+                   && !AreAllSuccessCardsRevealed();
         }
 
         public bool IsFinished()
         {
-            return IsStarted
-                   && (RevealedPlayCards.Count >= 4 * Players.Count
-                       || RevealedPlayCards.Any(p => p.Card == PlayCard.Bomb)
-                       || RevealedPlayCards.Select(p => p.Card == PlayCard.Success).Count() >= Players.Count);
+            return IsStarted 
+                   && (IsBombExploded() || AreAllSuccessCardsRevealed());
+        }
+
+        public RoleCard? GetWinner()
+        {
+            if (IsFinished())
+            {
+                if (IsBombExploded())
+                {
+                    return RoleCard.Terrorist;
+                }
+
+                if (AreAllSuccessCardsRevealed())
+                {
+                    return RoleCard.Swat;
+                }
+            }
+
+            return null;
         }
 
         public bool PlayerHoldsNipper(Guid playerId)
@@ -69,6 +84,17 @@ namespace TimeBomb2.Data
                 return 5;
             throw new ArgumentOutOfRangeException(
                 $"With {nrOfPlayers} Players and {nrOfRevealedCards} Revealed Cards, no round can be calculated.");
+        }
+
+        private bool IsBombExploded()
+        {
+            return RevealedPlayCards.Count >= 4 * Players.Count
+                   || RevealedPlayCards.Any(p => p.Card == PlayCard.Bomb);
+        }
+
+        private bool AreAllSuccessCardsRevealed()
+        {
+            return RevealedPlayCards.Select(p => p.Card == PlayCard.Success).Count() >= Players.Count;
         }
     }
 }

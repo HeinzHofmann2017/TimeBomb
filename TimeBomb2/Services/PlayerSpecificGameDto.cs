@@ -17,6 +17,7 @@ namespace TimeBomb2.Services
             IsStarted = game.IsStarted;
             OtherPlayers = GetOtherPlayers(game, playerId);
             IsFinished = game.IsFinished();
+            Winner = game.GetWinner();
         }
         
         public Guid GameId { get; set; }
@@ -25,6 +26,7 @@ namespace TimeBomb2.Services
         public List<RevealedPlayCard> RevealedPlayCards { get; set; }
         public bool IsStarted { get; set; }
         public bool IsFinished { get; set; }
+        public RoleCard? Winner { get; set; }
 
         private List<OtherPlayerDto> GetOtherPlayers(Game game, Guid playerId)
         {
