@@ -224,6 +224,21 @@
         </e>
         <e p="TimeBomb2IntegrationTests.csproj" t="IncludeRecursive" />
       </e>
+      <e p="TimeBomb2UnitTests" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Data" t="Include">
+          <e p="GameTests.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="TimeBomb2UnitTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TimeBomb2UnitTests.csproj" t="IncludeRecursive" />
+        <e p="UnitTest1.cs" t="Include" />
+      </e>
     </e>
   </component>
 </project>

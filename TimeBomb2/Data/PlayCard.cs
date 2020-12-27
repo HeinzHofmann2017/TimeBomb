@@ -1,4 +1,4 @@
-﻿﻿namespace TimeBomb.Data
+﻿﻿namespace TimeBomb2.Data
 {
     public enum PlayCard
     {

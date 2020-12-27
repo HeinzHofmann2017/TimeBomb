@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBomb2", "TimeBomb2\Time
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBomb2IntegrationTests", "TimeBomb2IntegrationTests\TimeBomb2IntegrationTests.csproj", "{2F4CA87A-F5CA-476D-9211-CD9308092AEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBomb2UnitTests", "TimeBomb2UnitTests\TimeBomb2UnitTests.csproj", "{D3FC8198-5B1E-4BFF-937A-B27FEC1FD66C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{2F4CA87A-F5CA-476D-9211-CD9308092AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F4CA87A-F5CA-476D-9211-CD9308092AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F4CA87A-F5CA-476D-9211-CD9308092AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3FC8198-5B1E-4BFF-937A-B27FEC1FD66C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3FC8198-5B1E-4BFF-937A-B27FEC1FD66C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3FC8198-5B1E-4BFF-937A-B27FEC1FD66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3FC8198-5B1E-4BFF-937A-B27FEC1FD66C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

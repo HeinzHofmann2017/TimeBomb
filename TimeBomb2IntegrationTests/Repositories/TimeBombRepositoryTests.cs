@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
-using TimeBomb.Data;
 using TimeBomb2.Data;
 using TimeBomb2.Data.Access;
 using TimeBomb2.Repositories;

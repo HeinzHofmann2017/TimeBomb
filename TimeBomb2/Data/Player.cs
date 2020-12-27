@@ -1,7 +1,7 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace TimeBomb.Data
+namespace TimeBomb2.Data
 {
     public class Player
     {

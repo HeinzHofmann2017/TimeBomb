@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using TimeBomb.Data;
 
 namespace TimeBomb2.Data
 {
@@ -51,7 +49,7 @@ namespace TimeBomb2.Data
 
         public bool PlayerHasRemainingHiddenCards(string playerName)
         {
-            return Players.FirstOrDefault(p => p.Name == playerName)?.HiddenPlayCards.Count > 0;
+            return Players.FirstOrDefault(p => p.Name == playerName)?.HiddenPlayCards?.Count > 0;
         }
 
         public bool PlayerIdMatchesWithName(Guid playerId, string playerName)
@@ -94,7 +92,7 @@ namespace TimeBomb2.Data
 
         private bool AreAllSuccessCardsRevealed()
         {
-            return RevealedPlayCards.Select(p => p.Card == PlayCard.Success).Count() >= Players.Count;
+            return RevealedPlayCards.Count(p => p.Card == PlayCard.Success) >= Players.Count;
         }
     }
 }
