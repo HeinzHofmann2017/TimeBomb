@@ -17,11 +17,14 @@ namespace TimeBomb2.Services
 
         public static PlayerSpecificGameDto RegisterNewPlayer(Guid gameId, string name)
         {
-            // Todo: only register new player if player with same name doesn't exist yet
             var game = TimeBombRepository.GetGameById(gameId);
             var playerId = Guid.NewGuid();
-            if (game.IsStarted || game.Players.Count >= 6)
+            if (game.IsStarted
+                || game.Players.Count >= 6
+                || game.Players.Any(p => p.Name == name))
+            {
                 return null;
+            }
 
             var players = game.Players;
             players.Add(new Player()
