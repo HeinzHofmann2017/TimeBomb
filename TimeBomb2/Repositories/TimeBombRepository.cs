@@ -5,9 +5,10 @@ using TimeBomb2.Data.Access;
 
 namespace TimeBomb2.Repositories
 {
-    public static class TimeBombRepository
+    
+    public class TimeBombRepository : ITimeBombRepository
     {
-        public static Guid CreateGameAndGetItsId()
+        public Guid CreateGameAndGetItsId()
         { 
             var game = new Game()
             {
@@ -20,20 +21,20 @@ namespace TimeBomb2.Repositories
             return game.GameId;
         }
 
-        public static Game GetGameById(Guid gameId)
+        public Game GetGameById(Guid gameId)
         {
             var store = DocumentStoreHolder.Store;
             using var session = store.OpenSession();
             return session.Load<Game>(gameId.ToString());
         }
 
-        public static bool GameExists(Guid gameId)
+        public bool GameExists(Guid gameId)
         {
             var game = GetGameById(gameId);
             return game != null;
         }
 
-        public static Game UpdateGame(Guid gameId, List<Player> players, List<RevealedPlayCard> revealedCards, bool? started)
+        public Game UpdateGame(Guid gameId, List<Player> players, List<RevealedPlayCard> revealedCards, bool? started)
         {
             var store = DocumentStoreHolder.Store;
             using var session = store.OpenSession();

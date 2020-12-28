@@ -197,9 +197,11 @@
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Repositories" t="Include">
+          <e p="ITimeBombRepository.cs" t="Include" />
           <e p="TimeBombRepository.cs" t="Include" />
         </e>
         <e p="Services" t="Include">
+          <e p="ListExtensions.cs" t="Include" />
           <e p="TimeBombService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />

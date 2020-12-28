@@ -8,16 +8,23 @@ using TimeBomb2.Repositories;
 
 namespace TimeBomb2.Services
 {
-    public static class TimeBombService
+    public class TimeBombService
     {
-        public static Guid CreateGame()
+        private readonly ITimeBombRepository _timeBombRepository;
+
+        public TimeBombService(ITimeBombRepository timeBombRepository)
         {
-            return TimeBombRepository.CreateGameAndGetItsId();
+            _timeBombRepository = timeBombRepository;
+        }
+        
+        public Guid CreateGame()
+        {
+            return _timeBombRepository.CreateGameAndGetItsId();
         }
 
-        public static PlayerSpecificGameDto RegisterNewPlayer(Guid gameId, string name)
+        public PlayerSpecificGameDto RegisterNewPlayer(Guid gameId, string name)
         {
-            var game = TimeBombRepository.GetGameById(gameId);
+            var game = _timeBombRepository.GetGameById(gameId);
             var playerId = Guid.NewGuid();
             if (game.IsStarted
                 || game.Players.Count >= 6
@@ -33,14 +40,14 @@ namespace TimeBomb2.Services
                 Name = name
             });
             
-            var newGame = TimeBombRepository.UpdateGame(gameId, players, null, null);
+            var newGame = _timeBombRepository.UpdateGame(gameId, players, null, null);
 
             return new PlayerSpecificGameDto(newGame, playerId);
         }
 
-        public static PlayerSpecificGameDto StartGame(Guid gameId, Guid playerId)
+        public PlayerSpecificGameDto StartGame(Guid gameId, Guid playerId)
         {
-            var game = TimeBombRepository.GetGameById(gameId);
+            var game = _timeBombRepository.GetGameById(gameId);
             if (game.IsStarted) return new PlayerSpecificGameDto(game,playerId);
 
             var players = game.Players;
@@ -54,13 +61,13 @@ namespace TimeBomb2.Services
             });
             players.AssignNipperRandomToOnePlayer();
 
-            var startedGame = TimeBombRepository.UpdateGame(gameId, players, new List<RevealedPlayCard>(), true);
+            var startedGame = _timeBombRepository.UpdateGame(gameId, players, new List<RevealedPlayCard>(), true);
             return new PlayerSpecificGameDto(startedGame, playerId);
         }
 
-        public static PlayerSpecificGameDto NipCard(Guid gameId, Guid nippingPlayerId, string toBeNippedPlayerName)
+        public PlayerSpecificGameDto NipCard(Guid gameId, Guid nippingPlayerId, string toBeNippedPlayerName)
         {
-            var game = TimeBombRepository.GetGameById(gameId);
+            var game = _timeBombRepository.GetGameById(gameId);
             if (!game.IsRunning()
                 || !game.PlayerHoldsNipper(nippingPlayerId)
                 || !game.PlayerHasRemainingHiddenCards(toBeNippedPlayerName)
@@ -80,7 +87,7 @@ namespace TimeBomb2.Services
                 Card = revealedPlayCard,
                 NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
             });
-            var updatedGame = TimeBombRepository.UpdateGame(game.GameId, players, revealedPlayCards, null);
+            var updatedGame = _timeBombRepository.UpdateGame(game.GameId, players, revealedPlayCards, null);
 
             if (!updatedGame.NewRoundStartsNow())
             {
@@ -89,13 +96,13 @@ namespace TimeBomb2.Services
             
             var playersWithMixedCards = MixHiddenCards(updatedGame.Players);
             
-            var mixedGame = TimeBombRepository.UpdateGame(updatedGame.GameId, playersWithMixedCards, null, null);
+            var mixedGame = _timeBombRepository.UpdateGame(updatedGame.GameId, playersWithMixedCards, null, null);
             return new PlayerSpecificGameDto(mixedGame, nippingPlayerId);
         }
 
-        public static PlayerSpecificGameDto GetActualGameState(Guid gameId, Guid playerId)
+        public PlayerSpecificGameDto GetActualGameState(Guid gameId, Guid playerId)
         {
-            return new PlayerSpecificGameDto(TimeBombRepository.GetGameById(gameId),playerId);
+            return new PlayerSpecificGameDto(_timeBombRepository.GetGameById(gameId),playerId);
         }
 
         private static List<Player> MixHiddenCards(List<Player> players)
@@ -111,22 +118,6 @@ namespace TimeBomb2.Services
                 }
             });
             return players;
-        }
-
-        private static void AssignNipperRandomToOnePlayer(this IList<Player> players)
-        {
-            var rnd = new Random();
-            var index = rnd.Next(players.Count);
-            players[index].HoldsNipper = true;
-        }
-
-        private static TCard RemoveAndGetRandomCardFromList<TCard>(this IList<TCard> listOfCards)
-        {
-            var rnd = new Random();
-            var cardIndex = rnd.Next(listOfCards.Count);
-            var card = listOfCards[cardIndex];
-            listOfCards.RemoveAt(cardIndex);
-            return card;
         }
 
         private static IEnumerable<PlayCard> GetPlayCardsForSpecificAmountOfPlayers(int numberOfPlayers)

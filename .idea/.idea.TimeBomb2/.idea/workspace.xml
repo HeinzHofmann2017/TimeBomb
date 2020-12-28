@@ -14,7 +14,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TimeBomb2UnitTests/TimeBomb2UnitTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2UnitTests/TimeBomb2UnitTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2UnitTests/Services/TimeBombServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2UnitTests/Services/TimeBombServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,17 +38,19 @@
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Access/DocumentStoreHolder.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2IntegrationTests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/RevealedCard.cs" />
-        <option value="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2IntegrationTests/Repositories/TimeBombRepositoryTests.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Dtos/OtherPlayerDto.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Services/PlayerSpecificGameDto.cs" />
-        <option value="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2UnitTests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Player.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2UnitTests/Data/GameTests.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Dtos/PlayerSpecificGameDto.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2UnitTests/Data/Dtos/PlayerSpecificGameDtoTests.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Services/ListExtensions.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Repositories/ITimeBombRepository.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2UnitTests/Services/TimeBombServiceTests.cs" />
       </list>
     </option>
@@ -110,7 +116,7 @@
       <workItem from="1606150223565" duration="13379000" />
       <workItem from="1607255744490" duration="6326000" />
       <workItem from="1607360210900" duration="2176000" />
-      <workItem from="1609072191921" duration="11795000" />
+      <workItem from="1609072191921" duration="14468000" />
     </task>
     <servers />
   </component>
@@ -126,7 +132,7 @@
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 231/231" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 257/257" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -250,10 +256,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1607361954672" />
-    <state x="1989" y="-11" width="1398" height="715" maximized="true" key="dock-window-1" timestamp="1609170349736">
+    <state x="1989" y="-11" width="1398" height="715" maximized="true" key="dock-window-1" timestamp="1609172860541">
       <screen x="1920" y="0" width="1536" height="848" />
     </state>
-    <state x="1989" y="-11" width="1398" height="715" maximized="true" key="dock-window-1/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609170349736" />
+    <state x="1989" y="-11" width="1398" height="715" maximized="true" key="dock-window-1/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609172860541" />
     <state x="617" y="253" width="686" height="534" key="find.popup" timestamp="1609072232952">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
