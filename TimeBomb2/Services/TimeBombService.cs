@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Shouldly;
 using TimeBomb2.Data;
+using TimeBomb2.Data.Dtos;
 using TimeBomb2.Repositories;
 
 namespace TimeBomb2.Services

@@ -171,6 +171,7 @@
           </e>
           <e p="Dtos" t="Include">
             <e p="OtherPlayerDto.cs" t="Include" />
+            <e p="PlayerSpecificGameDto.cs" t="Include" />
           </e>
           <e p="Game.cs" t="Include" />
           <e p="PlayCard.cs" t="Include" />
@@ -199,7 +200,6 @@
           <e p="TimeBombRepository.cs" t="Include" />
         </e>
         <e p="Services" t="Include">
-          <e p="PlayerSpecificGameDto.cs" t="Include" />
           <e p="TimeBombService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />

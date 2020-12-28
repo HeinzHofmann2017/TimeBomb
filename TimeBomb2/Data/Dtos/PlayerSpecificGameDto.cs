@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TimeBomb2.Data;
-using TimeBomb2.Data.Dtos;
 
-namespace TimeBomb2.Services
+namespace TimeBomb2.Data.Dtos
 {
     public class PlayerSpecificGameDto
     {
