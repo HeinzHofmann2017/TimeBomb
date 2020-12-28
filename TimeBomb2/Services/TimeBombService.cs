@@ -51,12 +51,22 @@ namespace TimeBomb2.Services
             if (game.IsStarted) return new PlayerSpecificGameDto(game,playerId);
 
             var players = game.Players;
-            var roleCards = GetRoleCardsForSpecificAmountOfPlayers(players.Count).ToList();
-            var playCards = GetPlayCardsForSpecificAmountOfPlayers(players.Count).ToList();
+            List<RoleCard> roleCards;
+            List<PlayCard> playCards;
+            try
+            {
+                roleCards = GetRoleCardsForSpecificAmountOfPlayers(players.Count).ToList();
+                playCards = GetPlayCardsForSpecificAmountOfPlayers(players.Count).ToList();
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                throw new WrongAmountOfPlayerException(e.Message);
+            }
 
             players.ForEach(player =>
             {
                 player.RoleCard = roleCards.RemoveAndGetRandomCardFromList();
+                player.HiddenPlayCards = new List<PlayCard>();
                 for (var i = 0; i < 5; ++i) player.HiddenPlayCards.Add(playCards.RemoveAndGetRandomCardFromList());
             });
             players.AssignNipperRandomToOnePlayer();

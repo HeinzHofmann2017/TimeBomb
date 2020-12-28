@@ -12,7 +12,9 @@ namespace TimeBomb2.Repositories
         { 
             var game = new Game()
             {
-                GameId = Guid.NewGuid()
+                GameId = Guid.NewGuid(),
+                Players = new List<Player>(),
+                RevealedPlayCards = new List<RevealedPlayCard>()
             };
             var store = DocumentStoreHolder.Store;
             using var session = store.OpenSession();
