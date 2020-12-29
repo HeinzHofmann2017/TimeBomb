@@ -11,21 +11,21 @@ export class HomeComponent {
   private http: HttpClient;
   private baseUrl: string;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private route:Router) {
     this.http = http;
     this.baseUrl = baseUrl;
   }
   createNewGame() {
-    console.log("Method createNewGame was called")
-    this.http.get<string>(this.baseUrl + 'timebomb/creategame').subscribe(result => {
+    this.http.get<string>(this.baseUrl + 'timebomb/creategame')
+      .subscribe(result => {
            this.gameId = result;
            console.log("New Game with Id '" + this.gameId + "' has been created")
-           // route to registerplayer-component
+           this.route.navigate(['/register-player'], { state: { gameId: this.gameId }});
          }, error => console.error(error));
   }
 
   joinExistingGame(){
     console.log("Method joinExistingGame with Id '" + this.gameId + "' has been called")
-    // route to registerplayer-component
+    this.route.navigate(['/register-player'], { state: { gameId: this.gameId }});
   }
 }
