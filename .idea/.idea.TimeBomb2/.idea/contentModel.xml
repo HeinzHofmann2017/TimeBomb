@@ -191,6 +191,10 @@
                 <e p="nav-menu.component.html" t="Include" />
                 <e p="nav-menu.component.ts" t="Include" />
               </e>
+              <e p="registerplayer" t="Include">
+                <e p="registerplayer.component.html" t="Include" />
+                <e p="registerplayer.component.ts" t="Include" />
+              </e>
             </e>
             <e p="assets" t="Include">
               <e p=".gitkeep" t="Include" />

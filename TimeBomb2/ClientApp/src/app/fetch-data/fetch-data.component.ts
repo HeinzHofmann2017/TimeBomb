@@ -7,10 +7,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FetchDataComponent {
   public gameId: string;
+  public playerSpecificGameDto: IPlayerSpecificGameDto;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<string>(baseUrl + 'timebomb/creategame').subscribe(result => {
       this.gameId = result;
+    }, error => console.error(error));
+    http.get<IPlayerSpecificGameDto>(baseUrl + 'timebomb/registernewplayer?gameId=23b0661a-da7b-4725-b2d3-4066296fec67&name=Heinz').subscribe(result => {
+      this.playerSpecificGameDto = result;
     }, error => console.error(error));
   }
 }
