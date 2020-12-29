@@ -14,13 +14,12 @@ namespace TimeBomb2UnitTests.Services
     [TestClass]
     public class TimeBombServiceTests
     {
-        // Todo: expect exception
         [TestMethod]
         public void PlayerWithThisNameAlreadyExists_RegisterNewPlayer_ReturnsNull()
         {
             // Arrange
             var gameId = Guid.NewGuid();
-            var playerName = "TestName";
+            const string playerName = "TestName";
             var game = new Game
             {
                 IsStarted = false,
@@ -38,14 +37,11 @@ namespace TimeBomb2UnitTests.Services
 
             var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
 
-            // Act
-            var createdGame = timeBombService.RegisterNewPlayer(gameId, playerName);
-
-            // Assert
-            createdGame.ShouldBeNull();
+            // Act / Assert
+            Should.Throw<NotAllowedMoveException>(() => timeBombService.RegisterNewPlayer(gameId, playerName))
+                .Message.ShouldBe("A Player with this Name already exists for this game. Please choose another name");
         }
 
-        // Todo: expect exception
         [TestMethod]
         public void GameAlreadyStarted_RegisterNewPlayer_ReturnsNull()
         {
@@ -54,21 +50,19 @@ namespace TimeBomb2UnitTests.Services
             var game = new Game
             {
                 IsStarted = true,
-                GameId = gameId
+                GameId = gameId,
+                Players = new List<Player>()
             };
             var timeBombRepositoryMock = new Mock<ITimeBombRepository>();
             timeBombRepositoryMock.Setup(m => m.GetGameById(It.IsAny<Guid>())).Returns(game);
 
             var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
 
-            // Act
-            var createdGame = timeBombService.RegisterNewPlayer(gameId, "TestName");
-
-            // Assert
-            createdGame.ShouldBeNull();
+            // Act / Assert
+            Should.Throw<NotAllowedMoveException>(() => timeBombService.RegisterNewPlayer(gameId, "TestName"))
+                .Message.ShouldBe("Joining this game isn't allowed anymore, because it already started");
         }
 
-        // Todo: expect exception
         [TestMethod]
         public void TooManyPlayersRegistered_RegisterNewPlayer_ReturnsNull()
         {
@@ -93,11 +87,9 @@ namespace TimeBomb2UnitTests.Services
 
             var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
 
-            // Act
-            var createdGame = timeBombService.RegisterNewPlayer(gameId, "TestName");
-
-            // Assert
-            createdGame.ShouldBeNull();
+            // Act / Assert
+            Should.Throw<NotAllowedMoveException>(() => timeBombService.RegisterNewPlayer(gameId, "TestName"))
+                .Message.ShouldBe("Already the maximum of 6 Players joined this game. Therefore no more Players are allowed");
         }
 
         [TestMethod]

@@ -26,11 +26,21 @@ namespace TimeBomb2.Services
         {
             var game = _timeBombRepository.GetGameById(gameId);
             var playerId = Guid.NewGuid();
-            if (game.IsStarted
-                || game.Players.Count >= 6
-                || game.Players.Any(p => p.Name == name))
+
+            if (game.Players.Any(p => p.Name == name))
             {
-                return null;
+                throw new NotAllowedMoveException("A Player with this Name already exists for this game. Please choose another name");
+            }
+
+            if (game.IsStarted)
+            {
+                throw new NotAllowedMoveException("Joining this game isn't allowed anymore, because it already started");
+            }
+
+            if (game.Players.Count >= 6)
+            {
+                throw new NotAllowedMoveException(
+                    "Already the maximum of 6 Players joined this game. Therefore no more Players are allowed");
             }
 
             var players = game.Players;
