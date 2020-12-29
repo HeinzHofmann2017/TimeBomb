@@ -202,6 +202,7 @@
         </e>
         <e p="Services" t="Include">
           <e p="ListExtensions.cs" t="Include" />
+          <e p="NotAllowedMoveException.cs" t="Include" />
           <e p="TimeBombService.cs" t="Include" />
           <e p="WrongAmountOfPlayerException.cs" t="Include" />
         </e>

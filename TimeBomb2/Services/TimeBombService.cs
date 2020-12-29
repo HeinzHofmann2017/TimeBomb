@@ -78,11 +78,33 @@ namespace TimeBomb2.Services
         public PlayerSpecificGameDto NipCard(Guid gameId, Guid nippingPlayerId, string toBeNippedPlayerName)
         {
             var game = _timeBombRepository.GetGameById(gameId);
-            if (!game.IsRunning()
-                || !game.PlayerHoldsNipper(nippingPlayerId)
-                || !game.PlayerHasRemainingHiddenCards(toBeNippedPlayerName)
-                || game.PlayerIdMatchesWithName(nippingPlayerId, toBeNippedPlayerName))
-                return new PlayerSpecificGameDto(game, nippingPlayerId);
+            if (!game.PlayerHoldsNipper(nippingPlayerId))
+            {
+                throw new NotAllowedMoveException(
+                    "This Player doesn't hold the nipper right now, so he isn't allowed to nip anybody.");
+            }
+
+            if (!game.IsStarted)
+            {
+                throw new NotAllowedMoveException("Game didn't start yet, so this move isn't allowed yet.");
+            }
+
+            if (game.IsFinished())
+            {
+                throw new NotAllowedMoveException(
+                    "Game is already finished (either bomb exploded, all success-cards are revealed or 4 rounds are fully played), so nipping cards isn't allowed anymore.");
+            }
+
+            if (!game.PlayerHasRemainingHiddenCards(toBeNippedPlayerName))
+            {
+                throw new NotAllowedMoveException(
+                    "To be nipped player doesn't have any hidden cards anymore, so nipping this player isn't allowed.");
+            }
+
+            if (game.PlayerIdMatchesWithName(nippingPlayerId, toBeNippedPlayerName))
+            {
+                throw new NotAllowedMoveException("Player tries to nip himself. This isn't allowed in this game");
+            }
 
             var revealedPlayCards = game.RevealedPlayCards;
             var players = game.Players;

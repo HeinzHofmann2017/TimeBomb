@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Shouldly;
@@ -12,6 +14,7 @@ namespace TimeBomb2UnitTests.Services
     [TestClass]
     public class TimeBombServiceTests
     {
+        // Todo: expect exception
         [TestMethod]
         public void PlayerWithThisNameAlreadyExists_RegisterNewPlayer_ReturnsNull()
         {
@@ -42,6 +45,7 @@ namespace TimeBomb2UnitTests.Services
             createdGame.ShouldBeNull();
         }
 
+        // Todo: expect exception
         [TestMethod]
         public void GameAlreadyStarted_RegisterNewPlayer_ReturnsNull()
         {
@@ -64,6 +68,7 @@ namespace TimeBomb2UnitTests.Services
             createdGame.ShouldBeNull();
         }
 
+        // Todo: expect exception
         [TestMethod]
         public void TooManyPlayersRegistered_RegisterNewPlayer_ReturnsNull()
         {
@@ -334,6 +339,812 @@ namespace TimeBomb2UnitTests.Services
                     It.IsAny<bool?>()),
                 Times.Never);
 
+        }
+
+        [TestMethod]
+        public void NotNipperHoldingPlayerWantsToNipCard_NipCard_ShouldReturnException()
+        {
+            // Arrange
+            var gameId = Guid.NewGuid();
+            var nippingPlayerId = Guid.NewGuid();
+            const string toBeNippedPlayerName = "ToBeNippedPlayerName";
+            var game = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>(),
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        },
+                        HoldsNipper = true
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = false
+                    }
+                }
+            };
+            var timeBombRepositoryMock = new Mock<ITimeBombRepository>();
+            timeBombRepositoryMock
+                .Setup(m => m.GetGameById(gameId))
+                .Returns(game);
+            var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
+            
+            // Act / Assert
+            Should.Throw<NotAllowedMoveException>(() => timeBombService.NipCard(gameId, nippingPlayerId, toBeNippedPlayerName))
+                .Message.ShouldBe("This Player doesn't hold the nipper right now, so he isn't allowed to nip anybody.");
+        }
+
+        [TestMethod]
+        public void GameDidntStartYet_NipCard_ShouldReturnException()
+        {
+            // Arrange
+            var gameId = Guid.NewGuid();
+            var nippingPlayerId = Guid.NewGuid();
+            const string toBeNippedPlayerName = "ToBeNippedPlayerName";
+            var game = new Game()
+            {
+                GameId = gameId,
+                IsStarted = false,
+                RevealedPlayCards = new List<RevealedPlayCard>(),
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            var timeBombRepositoryMock = new Mock<ITimeBombRepository>();
+            timeBombRepositoryMock
+                .Setup(m => m.GetGameById(gameId))
+                .Returns(game);
+            var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
+            
+            // Act / Assert
+            Should.Throw<NotAllowedMoveException>(() => timeBombService.NipCard(gameId, nippingPlayerId, toBeNippedPlayerName))
+                .Message.ShouldBe("Game didn't start yet, so this move isn't allowed yet.");
+        }
+
+        [TestMethod]
+        public void GameAlreadyFinished_NipCard_ShouldReturnException()
+        {
+            // Arrange
+            var gameId = Guid.NewGuid();
+            var nippingPlayerId = Guid.NewGuid();
+            const string toBeNippedPlayerName = "ToBeNippedPlayerName";
+            var game = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>()
+                {
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Bomb,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1
+                    }
+                },
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            var timeBombRepositoryMock = new Mock<ITimeBombRepository>();
+            timeBombRepositoryMock
+                .Setup(m => m.GetGameById(gameId))
+                .Returns(game);
+            var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
+            
+            // Act / Assert
+            Should.Throw<NotAllowedMoveException>(() => timeBombService.NipCard(gameId, nippingPlayerId, toBeNippedPlayerName))
+                .Message.ShouldBe("Game is already finished (either bomb exploded, all success-cards are revealed or 4 rounds are fully played), so nipping cards isn't allowed anymore.");
+        }
+
+        [TestMethod]
+        public void PlayerWantsToNipHimself_NipCard_ShouldReturnException()
+        {
+            // Arrange
+            var gameId = Guid.NewGuid();
+            var nippingPlayerId = Guid.NewGuid();
+            const string toBeNippedPlayerName = "ToBeNippedPlayerName";
+            var game = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>(),
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            var timeBombRepositoryMock = new Mock<ITimeBombRepository>();
+            timeBombRepositoryMock
+                .Setup(m => m.GetGameById(gameId))
+                .Returns(game);
+            var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
+            
+            // Act / Assert
+            Should.Throw<NotAllowedMoveException>(() => timeBombService.NipCard(gameId, nippingPlayerId, toBeNippedPlayerName))
+                .Message.ShouldBe("Player tries to nip himself. This isn't allowed in this game");
+        }
+
+        [TestMethod]
+        public void ToBeNippedPlayerDoesntHaveRemainingHiddenCardsAnymore_NipCard_ShouldReturnException()
+        {
+            // Arrange
+            var gameId = Guid.NewGuid();
+            var nippingPlayerId = Guid.NewGuid();
+            const string toBeNippedPlayerName = "ToBeNippedPlayerName";
+            var game = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>(),
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            var timeBombRepositoryMock = new Mock<ITimeBombRepository>();
+            timeBombRepositoryMock
+                .Setup(m => m.GetGameById(gameId))
+                .Returns(game);
+            var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
+            
+            // Act / Assert
+            Should.Throw<NotAllowedMoveException>(() => timeBombService.NipCard(gameId, nippingPlayerId, toBeNippedPlayerName))
+                .Message.ShouldBe("To be nipped player doesn't have any hidden cards anymore, so nipping this player isn't allowed.");
+        }
+
+        [TestMethod]
+        public void NipperHoldingPlayerNipsCard_NipCard_ReturnsValidDto()
+        {
+            // Arrange
+            var gameId = Guid.NewGuid();
+            var nippingPlayerId = Guid.NewGuid();
+            const string toBeNippedPlayerName = "ToBeNippedPlayerName";
+            var game1 = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>(),
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            var game2 = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>()
+                {
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        Round = 1,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
+                    }
+                },
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success,
+                            PlayCard.Success
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            
+            var timeBombRepositoryMock = new Mock<ITimeBombRepository>();
+            timeBombRepositoryMock
+                .Setup(m => m.GetGameById(gameId))
+                .Returns(game1);
+            timeBombRepositoryMock
+                .Setup(m => m.UpdateGame(
+                    gameId,
+                    It.IsAny<List<Player>>(),
+                    It.IsAny<List<RevealedPlayCard>>(),
+                    null))
+                .Returns(game2);
+            var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
+
+            // Act
+            var nippedGameDto = timeBombService.NipCard(gameId, nippingPlayerId, toBeNippedPlayerName);
+            
+            // Assert
+            timeBombRepositoryMock.Verify(m => m.UpdateGame(
+                gameId, 
+                It.Is<List<Player>>(l => l.Any(p => p.Name == toBeNippedPlayerName && p.HiddenPlayCards.Count == 4)),
+                It.Is<List<RevealedPlayCard>>(l => l.Any(r => r.Card == PlayCard.Success)),
+                null),
+                Times.Once);
+            nippedGameDto.OtherPlayers.Single(p => p.Name == toBeNippedPlayerName).NumberOfHiddenPlayCards.ShouldBe(4);
+            nippedGameDto.RevealedPlayCards.Count.ShouldBe(1);
+            nippedGameDto.RevealedPlayCards.Any(c => c.Card == PlayCard.Success).ShouldBeTrue();
+        }
+
+        [TestMethod]
+        public void NipperHoldingPlayerNipsLastCardOfRound_NipCard_ReturnsValidDtoAndCardsAreBeingMixed()
+        {
+            // Arrange
+            var gameId = Guid.NewGuid();
+            var nippingPlayerId = Guid.NewGuid();
+            const string toBeNippedPlayerName = "ToBeNippedPlayerName";
+            var game1 = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>()
+                {
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                },
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success,
+                            PlayCard.Success,
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            var game2 = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>()
+                {
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        Round = 1,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                },
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            var game3 = new Game()
+            {
+                GameId = gameId,
+                IsStarted = true,
+                RevealedPlayCards = new List<RevealedPlayCard>()
+                {
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        Round = 1,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                    new RevealedPlayCard()
+                    {
+                        Card = PlayCard.Success,
+                        NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
+                        Round = 1,
+                    },
+                },
+                Players = new List<Player>()
+                {
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        }
+                    },
+                    new Player()
+                    {
+                        Name = toBeNippedPlayerName,
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Success,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Bomb
+                        }
+                    },
+                    new Player()
+                    {
+                        HiddenPlayCards = new List<PlayCard>()
+                        {
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe,
+                            PlayCard.Safe
+                        },
+                        PlayerId = nippingPlayerId,
+                        HoldsNipper = true
+                    }
+                }
+            };
+            
+            var timeBombRepositoryMock = new Mock<ITimeBombRepository>();
+            timeBombRepositoryMock
+                .Setup(m => m.GetGameById(gameId))
+                .Returns(game1);
+            timeBombRepositoryMock
+                .Setup(m => m.UpdateGame(
+                    gameId,
+                    It.Is<List<Player>>(l => l.Any(p => p.Name == toBeNippedPlayerName && p.HiddenPlayCards.Count == 1)),
+                    It.Is<List<RevealedPlayCard>>(l => l.All(r => r.Card == PlayCard.Success)),
+                    null))
+                .Returns(game2);
+            timeBombRepositoryMock
+                .Setup(m => m.UpdateGame(
+                    gameId,
+                    It.Is<List<Player>>(l => l.All(p => p.HiddenPlayCards.Count == 4)),
+                    null,
+                    null))
+                .Returns(game3);
+            var timeBombService = new TimeBombService(timeBombRepositoryMock.Object);
+
+            // Act
+            var nippedGameDto = timeBombService.NipCard(gameId, nippingPlayerId, toBeNippedPlayerName);
+            
+            // Assert
+            timeBombRepositoryMock.Verify(m => m.UpdateGame(
+                gameId, 
+                It.Is<List<Player>>(l => l.Any(p => p.Name == toBeNippedPlayerName && p.HiddenPlayCards.Count == 1)),
+                It.Is<List<RevealedPlayCard>>(l => l.All(r => r.Card == PlayCard.Success)),
+                null),
+                Times.Once);
+            timeBombRepositoryMock.Verify(m => m.UpdateGame(
+                    gameId, 
+                    It.Is<List<Player>>(l => l.All(p => p.HiddenPlayCards.Count == 4)),
+                    null,
+                    null),
+                Times.Once);
+            nippedGameDto.RevealedPlayCards.Count.ShouldBe(4);
+            nippedGameDto.RevealedPlayCards.All(c => c.Card == PlayCard.Success).ShouldBeTrue();
+            nippedGameDto.IsFinished.ShouldBeTrue();
+            nippedGameDto.Winner.ShouldBe(RoleCard.Swat);
+            nippedGameDto.OtherPlayers.All(p => p.NumberOfHiddenPlayCards == 4).ShouldBeTrue();
         }
     }
 }
