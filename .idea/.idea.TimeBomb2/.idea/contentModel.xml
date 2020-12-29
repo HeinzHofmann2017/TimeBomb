@@ -214,6 +214,7 @@
           <e p="tslint.json" t="Include" />
         </e>
         <e p="Controllers" t="Include">
+          <e p="TimeBombController.cs" t="Include" />
           <e p="WeatherForecastController.cs" t="Include" />
         </e>
         <e p="Data" t="Include">
