@@ -10,7 +10,7 @@ using TimeBomb2.Services;
 namespace TimeBomb2.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("timebomb")]
     public class TimeBombController : ControllerBase
     {
         private readonly ILogger<TimeBombController> _logger;
@@ -23,6 +23,7 @@ namespace TimeBomb2.Controllers
         }
 
         [HttpGet]
+        [Route("creategame")]
         public Guid CreateGame()
         {
             return _timeBombService.CreateGame();
