@@ -27,7 +27,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             using var session = store.OpenSession();
 
             // Act
-            var gameId = TimeBombRepository.CreateGameAndGetItsId();
+            var gameId = new TimeBombRepository().CreateGameAndGetItsId();
 
             // Assert
             Thread.Sleep(1000);
@@ -47,7 +47,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             Thread.Sleep(1000);
 
             // Act
-            var doesGameExist = TimeBombRepository.GameExists(gameId);
+            var doesGameExist = new TimeBombRepository().GameExists(gameId);
 
             // Assert
             doesGameExist.ShouldBeTrue();
@@ -60,7 +60,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             var gameId = Guid.NewGuid();
 
             // Act
-            var doesGameExist = TimeBombRepository.GameExists(gameId);
+            var doesGameExist = new TimeBombRepository().GameExists(gameId);
 
             // Assert
             doesGameExist.ShouldBeFalse();
@@ -79,7 +79,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             Thread.Sleep(1000);
 
             // Act
-            var game = TimeBombRepository.GetGameById(gameId);
+            var game = new TimeBombRepository().GetGameById(gameId);
 
             // Assert
             game.ShouldNotBeNull();
@@ -92,7 +92,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             var gameId = Guid.NewGuid();
 
             // Act
-            var game = TimeBombRepository.GetGameById(gameId);
+            var game = new TimeBombRepository().GetGameById(gameId);
 
             // Assert
             game.ShouldBeNull();
@@ -162,7 +162,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             };
 
             // Act
-            TimeBombRepository.UpdateGame(newGame.GameId, newGame.Players, newGame.RevealedPlayCards, newGame.IsStarted);
+            new TimeBombRepository().UpdateGame(newGame.GameId, newGame.Players, newGame.RevealedPlayCards, newGame.IsStarted);
 
             // Assert
             Thread.Sleep(1000);
@@ -209,7 +209,7 @@ namespace TimeBomb2IntegrationTests.Repositories
             Thread.Sleep(1000);
 
             // Act
-            TimeBombRepository.UpdateGame(gameId, null, null, null);
+            new TimeBombRepository().UpdateGame(gameId, null, null, null);
 
             // Assert
             Thread.Sleep(1000);

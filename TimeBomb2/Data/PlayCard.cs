@@ -2,8 +2,8 @@
 {
     public enum PlayCard
     {
-        Bomb,
-        Success,
-        Safe
+        Bomb = 0,
+        Success = 1,
+        Safe = 2
     }
 }

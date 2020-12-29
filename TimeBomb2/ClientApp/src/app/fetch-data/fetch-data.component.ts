@@ -21,3 +21,44 @@ interface WeatherForecast {
   temperatureF: number;
   summary: string;
 }
+
+enum RoleCard {
+  Terrorist = 0,
+  Swat = 1
+}
+
+enum PlayCard {
+  Bomb =0,
+  Success = 1,
+  Safe = 2
+}
+
+interface IPlayer {
+  PlayerId: string;
+  Name: string;
+  HoldsNipper: boolean;
+  RoleCard: RoleCard;
+  HiddenPlayCards: PlayCard[];
+}
+
+interface IOtherPlayerDto {
+  Name: string;
+  HoldsNipper: boolean;
+  NumberOfHiddenPlayCards: number;
+}
+
+interface IRevealedPlayCard{
+  Round: number;
+  NameOfPlayerWhichHadThisCard: string;
+  PlayCard: PlayCard;
+}
+
+interface IPlayerSpecificGameDto {
+  GameId: string;
+  OtherPlayers: IOtherPlayerDto[];
+  OwnPlayer: IPlayer;
+  RevealedPlayCards: IRevealedPlayCard[];
+  IsStarted: boolean;
+  IsFinished: boolean;
+  Winner: RoleCard | null;
+}

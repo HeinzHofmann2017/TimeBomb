@@ -2,7 +2,7 @@
 {
     public enum RoleCard
     {
-        Terrorist,
-        Swat
+        Terrorist = 0,
+        Swat = 1
     }
 }
