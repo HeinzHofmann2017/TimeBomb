@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TimeBomb2.Data.Dtos;
 using TimeBomb2.Repositories;
 using TimeBomb2.Services;
 
@@ -28,5 +29,34 @@ namespace TimeBomb2.Controllers
         {
             return _timeBombService.CreateGame();
         }
+
+        [HttpGet]
+        [Route("registernewplayer")]
+        public PlayerSpecificGameDto RegisterNewPlayer(Guid gameId, string name)
+        {
+            return _timeBombService.RegisterNewPlayer(gameId, name);
+        }
+
+        [HttpGet]
+        [Route("startgame")]
+        public PlayerSpecificGameDto StartGame(Guid gameId, Guid playerId)
+        {
+            return _timeBombService.StartGame(gameId, playerId);
+        }
+
+        [HttpGet]
+        [Route("nipcard")]
+        public PlayerSpecificGameDto NipCard(Guid gameId, Guid nippingPlayerId, string toBeNippedPlayerName)
+        {
+            return _timeBombService.NipCard(gameId, nippingPlayerId, toBeNippedPlayerName);
+        }
+
+        [HttpGet]
+        [Route("getactualgamestate")]
+        public PlayerSpecificGameDto GetActualGameState(Guid gameId, Guid playerId)
+        {
+            return _timeBombService.GetActualGameState(gameId, playerId);
+        }
+
     }
 }
