@@ -3,7 +3,6 @@
 <p>This component demonstrates fetching data from the server.</p>
 
 <p *ngIf="!gameId"><em>GameId loading...</em></p>
-<p *ngIf="!playerSpecificGameDto"><em>GameDto with registered player loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="gameId">
   <thead>
@@ -17,9 +16,9 @@
   <tbody>
     <tr>
       <td>{{ gameId }}</td>
-      <td>{{ playerSpecificGameDto.OwnPlayer.Name }}</td>
-      <td>{{ playerSpecificGameDto.IsStarted }}</td>
-      <td>{{ playerSpecificGameDto.IsFinished }}</td>
+      <td>{{ gameId }}</td>
+      <td>{{ gameId }}</td>
+      <td>{{ gameId }}</td>
     </tr>
   </tbody>
 </table>

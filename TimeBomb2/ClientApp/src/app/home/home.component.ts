@@ -15,12 +15,12 @@ export class HomeComponent {
     this.http = http;
     this.baseUrl = baseUrl;
   }
+
   createNewGame() {
     this.http.get<string>(this.baseUrl + 'timebomb/creategame')
-      .subscribe(result => {
-           this.gameId = result;
-           console.log("New Game with Id '" + this.gameId + "' has been created")
-           this.route.navigate(['/register-player'], { state: { gameId: this.gameId }});
+      .subscribe(resultingGameId => {
+           console.log("New Game with Id '" + resultingGameId + "' has been created")
+           this.route.navigate(['/register-player'], { state: { gameId: resultingGameId}});
          }, error => console.error(error));
   }
 

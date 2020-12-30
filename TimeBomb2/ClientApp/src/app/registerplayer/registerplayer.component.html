@@ -1,2 +1,11 @@
 <h1>TimeBomb</h1>
-{{gameId}}
+<div>
+Game-Id: {{gameId}}
+</div>
+<div>
+Enter your Nickname:
+  <br/>
+<input [(ngModel)]="playerName" placeholder="Your Nickname" />
+  <br/>
+<button name="JoinGame" (click)="registerPlayer()">Join Game</button>
+</div>

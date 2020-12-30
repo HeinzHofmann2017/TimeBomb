@@ -14,8 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/home/home.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/registerplayer/registerplayer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/registerplayer/registerplayer.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/registerplayer/registerplayer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/registerplayer/registerplayer.component.ts" afterDir="false" />
@@ -24,6 +26,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,13 +67,14 @@
         <option value="$PROJECT_DIR$/TimeBomb2/Data/RoleCard.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/PlayCard.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Controllers/TimeBombController.cs" />
-        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.html" />
-        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.ts" />
         <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/home/home.component.html" />
         <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/registerplayer/registerplayer.component.ts" />
         <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/registerplayer/registerplayer.component.html" />
         <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/home/home.component.ts" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.ts" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.html" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/api/api.ts" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/registerplayer/registerplayer.component.ts" />
       </list>
     </option>
   </component>
@@ -131,7 +141,7 @@
       <workItem from="1607255744490" duration="6326000" />
       <workItem from="1607360210900" duration="2176000" />
       <workItem from="1609072191921" duration="28507000" />
-      <workItem from="1609256271982" duration="14509000" />
+      <workItem from="1609256271982" duration="17339000" />
     </task>
     <servers />
   </component>
@@ -179,22 +189,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="440" height="464" key="DebuggerActiveHint/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609086039496" />
-    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1609284038289">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1609286139255">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609284038289" />
-    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1609284038289">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609286139255" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1609286139255">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609284038289" />
-    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1609284038289">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609286139255" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1609286139255">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609284038289" />
-    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1609284038289">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609286139255" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1609286139255">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609284038289" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609286139255" />
     <state width="937" height="374" key="GridCell.Tab.1.bottom" timestamp="1609197958770">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
