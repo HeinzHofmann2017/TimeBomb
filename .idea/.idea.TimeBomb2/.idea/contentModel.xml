@@ -189,6 +189,10 @@
                 <e p="home.component.html" t="Include" />
                 <e p="home.component.ts" t="Include" />
               </e>
+              <e p="lobby" t="Include">
+                <e p="lobby.component.html" t="Include" />
+                <e p="lobby.component.ts" t="Include" />
+              </e>
               <e p="nav-menu" t="Include">
                 <e p="nav-menu.component.css" t="Include" />
                 <e p="nav-menu.component.html" t="Include" />

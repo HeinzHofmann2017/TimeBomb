@@ -1,0 +1,10 @@
+<h1>TimeBomb</h1>
+<div>
+Your Name: {{playerSpecificGameDto.ownPlayer.name}}
+</div>
+<div>
+Other Players:
+  <li *ngFor="let player of playerSpecificGameDto.otherPlayers">
+    <span>{{player.name}}</span>
+  </li>
+</div>
