@@ -24,7 +24,8 @@ Your Cards:
     <th>Player</th>
     <th>Number of hidden playcards</th>
     <th>Possesses Nipper</th>
-    <th></th>
+    <th *ngIf="!playerSpecificGameDto.isFinished"></th>
+    <th *ngIf="playerSpecificGameDto.isFinished">PlayCard</th>
   </tr>
   </thead>
   <tbody>
@@ -32,8 +33,8 @@ Your Cards:
     <td>{{ player.name }}</td>
     <td>{{ player.numberOfHiddenPlayCards }}</td>
     <td>{{ player.holdsNipper.toString() }}</td>
-    <!--Todo: Nip card of specific player, when hitting this button-->
-    <td><button *ngIf="playerSpecificGameDto.ownPlayer.holdsNipper">Nip</button></td>
+    <td *ngIf="!playerSpecificGameDto.isFinished"><button *ngIf="playerSpecificGameDto.ownPlayer.holdsNipper" (click)="nipCard(player)">Nip</button></td>
+    <td *ngIf="playerSpecificGameDto.isFinished">test</td>
   </tr>
   </tbody>
 </table>

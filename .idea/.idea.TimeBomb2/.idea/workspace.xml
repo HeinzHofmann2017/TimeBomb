@@ -13,16 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/play-field/play-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/play-field/play-field.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/play-field/play-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/play-field/play-field.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/Data/Dtos/OtherPlayerDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Data/Dtos/OtherPlayerDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/Data/Dtos/PlayerSpecificGameDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Data/Dtos/PlayerSpecificGameDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +138,7 @@
       <workItem from="1607360210900" duration="2176000" />
       <workItem from="1609072191921" duration="28507000" />
       <workItem from="1609256271982" duration="24597000" />
-      <workItem from="1609323479020" duration="5147000" />
+      <workItem from="1609323479020" duration="5476000" />
     </task>
     <servers />
   </component>
