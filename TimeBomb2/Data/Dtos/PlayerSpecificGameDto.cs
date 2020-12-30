@@ -32,7 +32,7 @@ namespace TimeBomb2.Data.Dtos
             {
                 if (p.PlayerId != playerId)
                 {
-                    otherPlayerDtos.Add(new OtherPlayerDto(p));
+                    otherPlayerDtos.Add(new OtherPlayerDto(p, game.IsFinished()));
                 }
             });
             return otherPlayerDtos;

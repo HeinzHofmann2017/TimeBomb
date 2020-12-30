@@ -30,6 +30,7 @@ export class otherPlayerDto {
   name: string;
   holdsNipper: boolean;
   numberOfHiddenPlayCards: number;
+  roleCard: roleCard;
 }
 
 export class revealedPlayCard{
