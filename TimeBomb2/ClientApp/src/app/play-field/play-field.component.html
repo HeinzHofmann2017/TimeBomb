@@ -3,22 +3,28 @@
   Game-Id: {{playerSpecificGameDto.gameId}}
 </div>
 <div>
+  <br/>
 Your Name : {{playerSpecificGameDto.ownPlayer.name}}
-Your Role : {{playerSpecificGameDto.ownPlayer.roleCard.toString()}}
-Nipper?   : {{playerSpecificGameDto.ownPlayer.holdsNipper}}
+  <br/>
+Your Role : {{roleCardsDisplay[playerSpecificGameDto.ownPlayer.roleCard]}}
+  <br/>
+Possess Nipper   : {{playerSpecificGameDto.ownPlayer.holdsNipper}}
+  <br/>
 Your Cards:
   <li *ngFor="let card of playerSpecificGameDto.ownPlayer.hiddenPlayCards">
-    <span>{{card.toString()}}</span>
+    <span>{{playCardsDisplay[card]}}</span>
   </li>
+  <br/>
+  <br/>
 </div>
 <div>
-  Other Players:
 <table class='table table-striped' aria-labelledby="tableLabel">
   <thead>
   <tr>
     <th>Player</th>
     <th>Number of hidden playcards</th>
-    <th>Nipper</th>
+    <th>Possesses Nipper</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -26,7 +32,10 @@ Your Cards:
     <td>{{ player.name }}</td>
     <td>{{ player.numberOfHiddenPlayCards }}</td>
     <td>{{ player.holdsNipper.toString() }}</td>
+    <!--Todo: Nip card of specific player, when hitting this button-->
+    <td><button *ngIf="playerSpecificGameDto.ownPlayer.holdsNipper">Nip</button></td>
   </tr>
   </tbody>
 </table>
 </div>
+<!--Todo: Show down here the revealed Cards-->
