@@ -8,7 +8,7 @@ namespace TimeBomb2.Data.Dtos
         {
             Name = player.Name;
             HoldsNipper = player.HoldsNipper;
-            NumberOfHiddenPlayCards = player.HiddenPlayCards.Count;
+            NumberOfHiddenPlayCards = player.HiddenPlayCards?.Count ?? 0;
         }
         
         public string Name { get; set; }

@@ -47,8 +47,7 @@ namespace TimeBomb2.Services
             players.Add(new Player()
             {
                 PlayerId = playerId,
-                Name = name,
-                HiddenPlayCards = new List<PlayCard>()
+                Name = name
             });
             
             var newGame = _timeBombRepository.UpdateGame(gameId, players, null, null);

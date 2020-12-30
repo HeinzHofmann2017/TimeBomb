@@ -112,7 +112,7 @@ namespace TimeBomb2UnitTests.Services
                 .Setup(m => m.UpdateGame(gameId, It.Is<List<Player>>(y => y[0].Name == playerName), null, null))
                 .Returns(game);
             timeBombRepositoryMock
-                .Setup(m => m.UpdateGame(It.IsAny<Guid>(), It.Is<List<Player>>(y => y[0].Name != playerName && y[0].HiddenPlayCards != null), null,
+                .Setup(m => m.UpdateGame(It.IsAny<Guid>(), It.Is<List<Player>>(y => y[0].Name != playerName), null,
                     null))
                 .Returns((Game) null);
 
