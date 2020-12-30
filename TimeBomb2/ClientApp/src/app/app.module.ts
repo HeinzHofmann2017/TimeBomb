@@ -9,7 +9,6 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterPlayerComponent } from './registerplayer/registerplayer.component';
 import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { PlayFieldComponent } from './play-field/play-field.component';
 
@@ -20,7 +19,6 @@ import { PlayFieldComponent } from './play-field/play-field.component';
     HomeComponent,
     RegisterPlayerComponent,
     CounterComponent,
-    FetchDataComponent,
     LobbyComponent,
     PlayFieldComponent,
   ],
@@ -33,8 +31,7 @@ import { PlayFieldComponent } from './play-field/play-field.component';
       { path: 'register-player/:gameId', component: RegisterPlayerComponent },
       { path: 'lobby/:gameId/:playerId', component: LobbyComponent },
       { path: 'play-field/:gameId/:playerId', component: PlayFieldComponent},
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'counter', component: CounterComponent }
     ])
   ],
   providers: [],

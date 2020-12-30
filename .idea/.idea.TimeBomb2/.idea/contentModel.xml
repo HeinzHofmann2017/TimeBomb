@@ -181,10 +181,6 @@
                 <e p="counter.component.spec.ts" t="Include" />
                 <e p="counter.component.ts" t="Include" />
               </e>
-              <e p="fetch-data" t="Include">
-                <e p="fetch-data.component.html" t="Include" />
-                <e p="fetch-data.component.ts" t="Include" />
-              </e>
               <e p="home" t="Include">
                 <e p="home.component.html" t="Include" />
                 <e p="home.component.ts" t="Include" />

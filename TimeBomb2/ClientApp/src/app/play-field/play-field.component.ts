@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {playerSpecificGameDto, PlayCardsDisplay, RoleCardsDisplay, player, revealedPlayCard, playCard, roleCard} from "../api/api"
+import {playerSpecificGameDto, PlayCardsDisplay, RoleCardsDisplay} from "../api/api"
 
 @Component({
   selector: 'app-play-field',
