@@ -147,15 +147,15 @@ namespace TimeBomb2IntegrationTests.Repositories
                 {
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Safe,
+                        PlayCard = PlayCard.Safe,
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                     }
                 },
                 IsStarted = true
@@ -185,9 +185,9 @@ namespace TimeBomb2IntegrationTests.Repositories
                 heinzPlayer.HiddenPlayCards.ShouldNotContain(PlayCard.Success);
                 heinzPlayer.HiddenPlayCards.ShouldNotContain(PlayCard.Safe);
                 
-                loadedGame.RevealedPlayCards.ShouldContain(c => c.Card == PlayCard.Safe);
-                loadedGame.RevealedPlayCards.ShouldContain(c => c.Card == PlayCard.Success);
-                loadedGame.RevealedPlayCards.ShouldNotContain(c => c.Card == PlayCard.Bomb);
+                loadedGame.RevealedPlayCards.ShouldContain(c => c.PlayCard == PlayCard.Safe);
+                loadedGame.RevealedPlayCards.ShouldContain(c => c.PlayCard == PlayCard.Success);
+                loadedGame.RevealedPlayCards.ShouldNotContain(c => c.PlayCard == PlayCard.Bomb);
 
                 loadedGame.IsStarted.ShouldBeTrue();
             }

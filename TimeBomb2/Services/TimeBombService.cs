@@ -126,7 +126,7 @@ namespace TimeBomb2.Services
             revealedPlayCards.Add(new RevealedPlayCard
             {
                 Round = game.GetGameRound(),
-                Card = revealedPlayCard,
+                PlayCard = revealedPlayCard,
                 NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
             });
             players = AssignNipperToNippedPlayer(players, toBeNippedPlayerName);

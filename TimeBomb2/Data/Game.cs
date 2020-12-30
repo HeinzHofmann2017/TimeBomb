@@ -87,12 +87,12 @@ namespace TimeBomb2.Data
         private bool IsBombExploded()
         {
             return RevealedPlayCards.Count >= 4 * Players.Count
-                   || RevealedPlayCards.Any(p => p.Card == PlayCard.Bomb);
+                   || RevealedPlayCards.Any(p => p.PlayCard == PlayCard.Bomb);
         }
 
         private bool AreAllSuccessCardsRevealed()
         {
-            return RevealedPlayCards.Count(p => p.Card == PlayCard.Success) >= Players.Count;
+            return RevealedPlayCards.Count(p => p.PlayCard == PlayCard.Success) >= Players.Count;
         }
     }
 }

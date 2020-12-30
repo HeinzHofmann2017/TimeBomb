@@ -4,6 +4,6 @@
     {
         public int Round { get; set; }
         public string NameOfPlayerWhichHadThisCard { get; set; }
-        public PlayCard Card { get; set; }
+        public PlayCard PlayCard { get; set; }
     }
 }

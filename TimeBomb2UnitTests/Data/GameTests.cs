@@ -541,7 +541,7 @@ namespace TimeBomb2UnitTests.Data
         {
             return new RevealedPlayCard()
             {
-                Card = card,
+                PlayCard = card,
                 NameOfPlayerWhichHadThisCard = GetRandomString(10),
                 Round = round
             };

@@ -497,7 +497,7 @@ namespace TimeBomb2UnitTests.Services
                 {
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Bomb,
+                        PlayCard = PlayCard.Bomb,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1
                     }
@@ -775,7 +775,7 @@ namespace TimeBomb2UnitTests.Services
                 {
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         Round = 1,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
                     }
@@ -851,12 +851,12 @@ namespace TimeBomb2UnitTests.Services
             timeBombRepositoryMock.Verify(m => m.UpdateGame(
                 gameId, 
                 It.Is<List<Player>>(l => l.Any(p => p.Name == toBeNippedPlayerName && p.HiddenPlayCards.Count == 4)),
-                It.Is<List<RevealedPlayCard>>(l => l.Any(r => r.Card == PlayCard.Success)),
+                It.Is<List<RevealedPlayCard>>(l => l.Any(r => r.PlayCard == PlayCard.Success)),
                 null),
                 Times.Once);
             nippedGameDto.OtherPlayers.Single(p => p.Name == toBeNippedPlayerName).NumberOfHiddenPlayCards.ShouldBe(4);
             nippedGameDto.RevealedPlayCards.Count.ShouldBe(1);
-            nippedGameDto.RevealedPlayCards.Any(c => c.Card == PlayCard.Success).ShouldBeTrue();
+            nippedGameDto.RevealedPlayCards.Any(c => c.PlayCard == PlayCard.Success).ShouldBeTrue();
         }
 
         [TestMethod]
@@ -874,19 +874,19 @@ namespace TimeBomb2UnitTests.Services
                 {
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
@@ -947,25 +947,25 @@ namespace TimeBomb2UnitTests.Services
                 {
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         Round = 1,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
@@ -1025,25 +1025,25 @@ namespace TimeBomb2UnitTests.Services
                 {
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         Round = 1,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
                     new RevealedPlayCard()
                     {
-                        Card = PlayCard.Success,
+                        PlayCard = PlayCard.Success,
                         NameOfPlayerWhichHadThisCard = toBeNippedPlayerName,
                         Round = 1,
                     },
@@ -1104,7 +1104,7 @@ namespace TimeBomb2UnitTests.Services
                 .Setup(m => m.UpdateGame(
                     gameId,
                     It.Is<List<Player>>(l => l.Any(p => p.Name == toBeNippedPlayerName && p.HiddenPlayCards.Count == 1)),
-                    It.Is<List<RevealedPlayCard>>(l => l.All(r => r.Card == PlayCard.Success)),
+                    It.Is<List<RevealedPlayCard>>(l => l.All(r => r.PlayCard == PlayCard.Success)),
                     null))
                 .Returns(game2);
             timeBombRepositoryMock
@@ -1123,7 +1123,7 @@ namespace TimeBomb2UnitTests.Services
             timeBombRepositoryMock.Verify(m => m.UpdateGame(
                 gameId, 
                 It.Is<List<Player>>(l => l.Any(p => p.Name == toBeNippedPlayerName && p.HiddenPlayCards.Count == 1)),
-                It.Is<List<RevealedPlayCard>>(l => l.All(r => r.Card == PlayCard.Success)),
+                It.Is<List<RevealedPlayCard>>(l => l.All(r => r.PlayCard == PlayCard.Success)),
                 null),
                 Times.Once);
             timeBombRepositoryMock.Verify(m => m.UpdateGame(
@@ -1133,7 +1133,7 @@ namespace TimeBomb2UnitTests.Services
                     null),
                 Times.Once);
             nippedGameDto.RevealedPlayCards.Count.ShouldBe(4);
-            nippedGameDto.RevealedPlayCards.All(c => c.Card == PlayCard.Success).ShouldBeTrue();
+            nippedGameDto.RevealedPlayCards.All(c => c.PlayCard == PlayCard.Success).ShouldBeTrue();
             nippedGameDto.IsFinished.ShouldBeTrue();
             nippedGameDto.Winner.ShouldBe(RoleCard.Swat);
             nippedGameDto.OtherPlayers.All(p => p.NumberOfHiddenPlayCards == 4).ShouldBeTrue();

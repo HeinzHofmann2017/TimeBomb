@@ -34,9 +34,34 @@ Your Cards:
     <td>{{ player.numberOfHiddenPlayCards }}</td>
     <td>{{ player.holdsNipper.toString() }}</td>
     <td *ngIf="!playerSpecificGameDto.isFinished"><button *ngIf="playerSpecificGameDto.ownPlayer.holdsNipper" (click)="nipCard(player)">Nip</button></td>
-    <td *ngIf="playerSpecificGameDto.isFinished">test</td>
+    <td *ngIf="playerSpecificGameDto.isFinished">Tests</td>
   </tr>
   </tbody>
 </table>
 </div>
-<!--Todo: Show down here the revealed Cards-->
+
+<div>
+  <table class="table table-striped" aria-labelledby="tableLabel">
+    <thead>
+    <tr>
+      <th>Round</th>
+      <th>Player</th>
+      <th>RevealedCard</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let revealedCard of playerSpecificGameDto.revealedPlayCards">
+      <td>{{revealedCard.round}}</td>
+      <td>{{revealedCard.nameOfPlayerWhichHadThisCard}}</td>
+      <td>{{playCardsDisplay[revealedCard.playCard]}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div *ngIf="playerSpecificGameDto.isFinished">
+  <h2>
+    {{roleCardsDisplay[playerSpecificGameDto.winner]}}s have won this game
+  </h2>
+</div>
