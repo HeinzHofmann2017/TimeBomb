@@ -1,0 +1,32 @@
+<h1>TimeBomb</h1>
+<div>
+  Game-Id: {{playerSpecificGameDto.gameId}}
+</div>
+<div>
+Your Name : {{playerSpecificGameDto.ownPlayer.name}}
+Your Role : {{playerSpecificGameDto.ownPlayer.roleCard.toString()}}
+Nipper?   : {{playerSpecificGameDto.ownPlayer.holdsNipper}}
+Your Cards:
+  <li *ngFor="let card of playerSpecificGameDto.ownPlayer.hiddenPlayCards">
+    <span>{{card.toString()}}</span>
+  </li>
+</div>
+<div>
+  Other Players:
+<table class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+  <tr>
+    <th>Player</th>
+    <th>Number of hidden playcards</th>
+    <th>Nipper</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let player of playerSpecificGameDto.otherPlayers">
+    <td>{{ player.name }}</td>
+    <td>{{ player.numberOfHiddenPlayCards }}</td>
+    <td>{{ player.holdsNipper.toString() }}</td>
+  </tr>
+  </tbody>
+</table>
+</div>

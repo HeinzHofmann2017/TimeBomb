@@ -11,6 +11,7 @@ import { RegisterPlayerComponent } from './registerplayer/registerplayer.compone
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LobbyComponent } from './lobby/lobby.component';
+import { PlayFieldComponent } from './play-field/play-field.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LobbyComponent } from './lobby/lobby.component';
     CounterComponent,
     FetchDataComponent,
     LobbyComponent,
+    PlayFieldComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,6 +32,7 @@ import { LobbyComponent } from './lobby/lobby.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'register-player/:gameId', component: RegisterPlayerComponent },
       { path: 'lobby/:gameId/:playerId', component: LobbyComponent },
+      { path: 'play-field/:gameId/:playerId', component: PlayFieldComponent},
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])

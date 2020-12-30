@@ -1,5 +1,8 @@
 <h1>TimeBomb</h1>
 <div>
+  Game-Id: {{playerSpecificGameDto.gameId}}
+</div>
+<div>
 Your Name: {{playerSpecificGameDto.ownPlayer.name}}
 </div>
 <div>
@@ -7,4 +10,11 @@ Other Players:
   <li *ngFor="let player of playerSpecificGameDto.otherPlayers">
     <span>{{player.name}}</span>
   </li>
+</div>
+
+<div>
+  You need 4 - 6 Players. If enough players joined you can start the game:
+  <br/>
+  <!--Only show this Button, when 4-6 Players are registered-->
+  <button name="StartGame" (click)="startGame()">Start Game</button>
 </div>

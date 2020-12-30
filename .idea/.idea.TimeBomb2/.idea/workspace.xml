@@ -14,7 +14,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44cdba4b-d6a8-4f12-9850-792ae7c7f2c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TimeBomb2UnitTests/Services/TimeBombServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2UnitTests/Services/TimeBombServiceTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/play-field/play-field.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/play-field/play-field.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +58,6 @@
         <option value="$PROJECT_DIR$/TimeBomb2/Repositories/TimeBombRepository.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Services/WrongAmountOfPlayerException.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Dtos/PlayerSpecificGameDto.cs" />
-        <option value="$PROJECT_DIR$/TimeBomb2/Data/Dtos/OtherPlayerDto.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Data/Game.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/Services/NotAllowedMoveException.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2IntegrationTests/Repositories/TimeBombRepositoryTests.cs" />
@@ -65,12 +70,15 @@
         <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/fetch-data/fetch-data.component.html" />
         <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/api/api.ts" />
         <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/home/home.component.ts" />
-        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.ts" />
-        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.html" />
-        <option value="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/registerplayer/registerplayer.component.ts" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Data/Dtos/OtherPlayerDto.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/Services/TimeBombService.cs" />
         <option value="$PROJECT_DIR$/TimeBomb2UnitTests/Services/TimeBombServiceTests.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.html" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/play-field/play-field.component.html" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/play-field/play-field.component.ts" />
+        <option value="$PROJECT_DIR$/TimeBomb2/ClientApp/src/app/lobby/lobby.component.ts" />
       </list>
     </option>
   </component>
@@ -137,7 +145,7 @@
       <workItem from="1607255744490" duration="6326000" />
       <workItem from="1607360210900" duration="2176000" />
       <workItem from="1609072191921" duration="28507000" />
-      <workItem from="1609256271982" duration="20504000" />
+      <workItem from="1609256271982" duration="23345000" />
     </task>
     <servers />
   </component>
@@ -185,22 +193,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="440" height="464" key="DebuggerActiveHint/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609086039496" />
-    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1609289994914">
+    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1609292068957">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609289994914" />
-    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1609289994914">
+    <state width="938" height="282" key="GridCell.Tab.0.bottom/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609292068957" />
+    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1609292068956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609289994914" />
-    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1609289994913">
+    <state width="938" height="282" key="GridCell.Tab.0.center/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609292068956" />
+    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1609292068956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609289994913" />
-    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1609289994914">
+    <state width="938" height="282" key="GridCell.Tab.0.left/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609292068956" />
+    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1609292068957">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609289994914" />
+    <state width="938" height="282" key="GridCell.Tab.0.right/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609292068957" />
     <state width="937" height="374" key="GridCell.Tab.1.bottom" timestamp="1609289602777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -277,18 +285,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1607361954672" />
-    <state x="2087" y="-14" width="1310" height="715" key="dock-window-1" timestamp="1609289798472">
+    <state x="2087" y="-14" width="1310" height="715" key="dock-window-1" timestamp="1609292562651">
       <screen x="1920" y="0" width="1536" height="848" />
     </state>
-    <state x="2087" y="-14" width="1310" height="715" key="dock-window-1/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609289798472" />
-    <state x="617" y="253" width="686" height="534" key="find.popup" timestamp="1609283379571">
+    <state x="2087" y="-14" width="1310" height="715" key="dock-window-1/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609292562651" />
+    <state x="1093" y="241" width="686" height="534" key="find.popup" timestamp="1609292334797">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="617" y="253" width="686" height="534" key="find.popup/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609283379571" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609086368908">
+    <state x="1093" y="241" width="686" height="534" key="find.popup/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609292334797" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609292999157">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609086368908" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.848/0.0.1920.1040@0.0.1920.1040" timestamp="1609292999157" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
