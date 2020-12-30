@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {playerSpecificGameDto, PlayCardsDisplay, RoleCardsDisplay} from "../api/api"
+import {playerSpecificGameDto, PlayCardsDisplay, RoleCardsDisplay, otherPlayerDto} from "../api/api"
 
 @Component({
   selector: 'app-play-field',
@@ -25,6 +25,14 @@ export class PlayFieldComponent {
     this.roleCardsDisplay = RoleCardsDisplay;
 
     this.http.get<playerSpecificGameDto>(this.baseUrl + 'timebomb/getactualgamestate?gameId='+this.gameId+'&playerId='+this.playerId)
+      .subscribe(resultingPlayerSpecificGameDto => {
+        this.playerSpecificGameDto = resultingPlayerSpecificGameDto;
+      }, error => console.error(error));
+  }
+
+  nipCard(player: otherPlayerDto){
+    console.log("Card of"+player.name+"is going to be nipped");
+    this.http.get<playerSpecificGameDto>(this.baseUrl + 'timebomb/nipcard?gameId='+this.gameId+'&nippingPlayerId='+this.playerId+'&toBeNippedPlayerName='+player.name)
       .subscribe(resultingPlayerSpecificGameDto => {
         this.playerSpecificGameDto = resultingPlayerSpecificGameDto;
       }, error => console.error(error));

@@ -129,6 +129,19 @@ namespace TimeBomb2.Services
                 Card = revealedPlayCard,
                 NameOfPlayerWhichHadThisCard = toBeNippedPlayerName
             });
+            players = AssignNipperToNippedPlayer(players, toBeNippedPlayerName);
+            players.ForEach(p =>
+            {
+                if (p.Name == toBeNippedPlayerName)
+                {
+                    p.HoldsNipper = true;
+                }
+                else
+                {
+                    p.HoldsNipper = false;
+                }
+            });
+            
             var updatedGame = _timeBombRepository.UpdateGame(game.GameId, players, revealedPlayCards, null);
 
             if (!updatedGame.NewRoundStartsNow())
@@ -218,6 +231,22 @@ namespace TimeBomb2.Services
             for (var i = 0; i < numberOfCards; i++) cards.Add(cardSubType);
 
             return cards;
+        }
+
+        private static List<Player> AssignNipperToNippedPlayer(List<Player> players, string toBeNippedPlayerName)
+        {
+            players.ForEach(p =>
+            {
+                if (p.Name == toBeNippedPlayerName)
+                {
+                    p.HoldsNipper = true;
+                }
+                else
+                {
+                    p.HoldsNipper = false;
+                }
+            });
+            return players;
         }
     }
 }

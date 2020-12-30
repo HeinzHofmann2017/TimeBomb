@@ -35,7 +35,7 @@ export class LobbyComponent {
   startGame(){
     this.http.get<playerSpecificGameDto>(this.baseUrl + 'timebomb/startgame?gameId='+this.gameId+'&playerId='+this.playerId)
       .subscribe(resultingPlayerSpecificGameDto => {
-        console.debug("Button was pressed and game is started:" + resultingPlayerSpecificGameDto.isStarted)
+        console.log("Button was pressed and game is started:" + resultingPlayerSpecificGameDto.isStarted)
         this.router.navigate(['/play-field', resultingPlayerSpecificGameDto.gameId, resultingPlayerSpecificGameDto.ownPlayer.playerId ]);
       }, error => console.error(error));
   }
