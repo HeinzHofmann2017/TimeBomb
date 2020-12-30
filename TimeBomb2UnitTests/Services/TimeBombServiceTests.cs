@@ -15,7 +15,7 @@ namespace TimeBomb2UnitTests.Services
     public class TimeBombServiceTests
     {
         [TestMethod]
-        public void PlayerWithThisNameAlreadyExists_RegisterNewPlayer_ReturnsNull()
+        public void PlayerWithThisNameAlreadyExists_RegisterNewPlayer_ThrowsException()
         {
             // Arrange
             var gameId = Guid.NewGuid();
@@ -43,7 +43,7 @@ namespace TimeBomb2UnitTests.Services
         }
 
         [TestMethod]
-        public void GameAlreadyStarted_RegisterNewPlayer_ReturnsNull()
+        public void GameAlreadyStarted_RegisterNewPlayer_ThrowsException()
         {
             // Arrange
             var gameId = Guid.NewGuid();
@@ -64,7 +64,7 @@ namespace TimeBomb2UnitTests.Services
         }
 
         [TestMethod]
-        public void TooManyPlayersRegistered_RegisterNewPlayer_ReturnsNull()
+        public void TooManyPlayersRegistered_RegisterNewPlayer_ThrowsException()
         {
             // Arrange
             var gameId = Guid.NewGuid();
@@ -112,7 +112,7 @@ namespace TimeBomb2UnitTests.Services
                 .Setup(m => m.UpdateGame(gameId, It.Is<List<Player>>(y => y[0].Name == playerName), null, null))
                 .Returns(game);
             timeBombRepositoryMock
-                .Setup(m => m.UpdateGame(It.IsAny<Guid>(), It.Is<List<Player>>(y => y[0].Name != playerName), null,
+                .Setup(m => m.UpdateGame(It.IsAny<Guid>(), It.Is<List<Player>>(y => y[0].Name != playerName && y[0].HiddenPlayCards != null), null,
                     null))
                 .Returns((Game) null);
 
