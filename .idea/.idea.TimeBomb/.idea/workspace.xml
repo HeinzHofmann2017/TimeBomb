@@ -4,9 +4,7 @@
     <projectFile>TimeBomb/TimeBomb.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b388bbb-7d7d-45d2-a762-d4d50c600f1e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TimeBomb/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb/Startup.cs" afterDir="false" />
-    </list>
+    <list default="true" id="9b388bbb-7d7d-45d2-a762-d4d50c600f1e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
