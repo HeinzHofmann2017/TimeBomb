@@ -10,11 +10,11 @@
     <e p="C:\Users\hohe\.nuget\packages\mstest.testadapter\2.1.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
     <e p="C:\Users\hohe\.nuget\packages\mstest.testadapter\2.1.0\build\netcoreapp1.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
     <e p="C:\Users\hohe\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\hohe\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_TimeBomb2.-1261401401.00" t="ExcludeRecursive" />
+    <e p="C:\Users\hohe\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_TimeBomb.-1261401401.00" t="ExcludeRecursive" />
     <e p="C:\Users\hohe\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
-    <e p="C:\Users\hohe\source\repos\TimeBomb2" t="IncludeFlat">
+    <e p="C:\Users\hohe\source\repos\TimeBomb" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
-      <e p="TimeBomb2" t="IncludeRecursive">
+      <e p="TimeBomb" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -245,8 +245,8 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="TimeBomb2.AssemblyInfo.cs" t="Include" />
-              <e p="TimeBomb2.RazorAssemblyInfo.cs" t="Include" />
+              <e p="TimeBomb.AssemblyInfo.cs" t="Include" />
+              <e p="TimeBomb.RazorAssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -270,28 +270,28 @@
           <e p="WrongAmountOfPlayerException.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="TimeBomb2.csproj" t="IncludeRecursive" />
+        <e p="TimeBomb.csproj" t="IncludeRecursive" />
         <e p="WeatherForecast.cs" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="favicon.ico" t="Include" />
         </e>
       </e>
-      <e p="TimeBomb2.sln" t="IncludeFlat" />
-      <e p="TimeBomb2IntegrationTests" t="IncludeRecursive">
+      <e p="TimeBomb.sln" t="IncludeFlat" />
+      <e p="TimeBombIntegrationTests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="TimeBomb2IntegrationTests.AssemblyInfo.cs" t="Include" />
+              <e p="TimeBombIntegrationTests.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Repositories" t="Include">
           <e p="TimeBombRepositoryTests.cs" t="Include" />
         </e>
-        <e p="TimeBomb2IntegrationTests.csproj" t="IncludeRecursive" />
+        <e p="TimeBombIntegrationTests.csproj" t="IncludeRecursive" />
       </e>
-      <e p="TimeBomb2UnitTests" t="IncludeRecursive">
+      <e p="TimeBombUnitTests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Data" t="Include">
           <e p="GameTests.cs" t="Include" />
@@ -299,14 +299,14 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="TimeBomb2UnitTests.AssemblyInfo.cs" t="Include" />
+              <e p="TimeBombUnitTests.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Services" t="Include">
           <e p="TimeBombServiceTests.cs" t="Include" />
         </e>
-        <e p="TimeBomb2UnitTests.csproj" t="IncludeRecursive" />
+        <e p="TimeBombUnitTests.csproj" t="IncludeRecursive" />
       </e>
     </e>
   </component>
