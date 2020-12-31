@@ -46,7 +46,8 @@ namespace TimeBomb
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // Maybe decomment this later..
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
