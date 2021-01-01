@@ -274,6 +274,17 @@
         <e p="WeatherForecast.cs" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="favicon.ico" t="Include" />
+          <e p="images" t="Include">
+            <e p="Backside.JPG" t="Include" />
+            <e p="Boom.jpg" t="Include" />
+            <e p="ClassicTimeBombManual1.jpg" t="Include" />
+            <e p="ClassicTimeBombManual2.jpg" t="Include" />
+            <e p="Nipper.jpg" t="Include" />
+            <e p="Safe.jpg" t="Include" />
+            <e p="Success.jpg" t="Include" />
+            <e p="SWAT.jpg" t="Include" />
+            <e p="Terrorist.jpg" t="Include" />
+          </e>
         </e>
       </e>
       <e p="TimeBomb.sln" t="IncludeFlat" />
