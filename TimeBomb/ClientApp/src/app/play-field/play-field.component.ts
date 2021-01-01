@@ -2,6 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {playerSpecificGameDto, PlayCardsDisplay, RoleCardsDisplay, otherPlayerDto} from "../api/api"
+import {interval, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-play-field',
@@ -15,6 +16,7 @@ export class PlayFieldComponent {
   playerSpecificGameDto: playerSpecificGameDto;
   playCardsDisplay: { [index: number]: string};
   roleCardsDisplay: { [index: number]: string};
+  subscription: Subscription;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router:Router, private route: ActivatedRoute){
     this.http = http;
@@ -24,6 +26,13 @@ export class PlayFieldComponent {
     this.playCardsDisplay = PlayCardsDisplay;
     this.roleCardsDisplay = RoleCardsDisplay;
 
+    const source = interval(1000);
+    this.subscription = source.subscribe(val => this.loadActualState());
+
+    this.loadActualState();
+  }
+
+  loadActualState(){
     this.http.get<playerSpecificGameDto>(this.baseUrl + 'timebomb/getactualgamestate?gameId='+this.gameId+'&playerId='+this.playerId)
       .subscribe(resultingPlayerSpecificGameDto => {
         this.playerSpecificGameDto = resultingPlayerSpecificGameDto;
