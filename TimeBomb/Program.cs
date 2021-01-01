@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TimeBomb.Data.Access;
 
 namespace TimeBomb
 {
@@ -13,6 +14,7 @@ namespace TimeBomb
     {
         public static void Main(string[] args)
         {
+            DocumentStoreHolder.CreateTimeBombDatabaseIfNotYetExists();
             CreateHostBuilder(args).Build().Run();
         }
 
