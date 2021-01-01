@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b388bbb-7d7d-45d2-a762-d4d50c600f1e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeBomb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeBomb/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeBomb/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeBomb/ClientApp/src/app/lobby/lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TimeBomb/ClientApp/src/app/lobby/lobby.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +25,7 @@
       <list>
         <option value="$PROJECT_DIR$/TimeBomb/Startup.cs" />
         <option value="$PROJECT_DIR$/TimeBomb/Program.cs" />
+        <option value="$PROJECT_DIR$/TimeBomb/ClientApp/src/app/lobby/lobby.component.ts" />
       </list>
     </option>
   </component>
@@ -36,6 +37,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ts.external.directory.path" value="C:\Users\hohe\source\repos\TimeBomb\TimeBomb\ClientApp\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.TimeBomb: IIS Express">
@@ -80,6 +82,7 @@
       <updated>1609415104415</updated>
       <workItem from="1609415114105" duration="233000" />
       <workItem from="1609420503970" duration="1574000" />
+      <workItem from="1609540362169" duration="317000" />
     </task>
     <servers />
   </component>
