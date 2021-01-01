@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CounterComponent } from './counter.component';
+import { CounterComponent } from './manual.component';
 
 describe('CounterComponent', () => {
   let component: CounterComponent;
@@ -21,7 +21,7 @@ describe('CounterComponent', () => {
 
   it('should display a title', async(() => {
     const titleText = fixture.nativeElement.querySelector('h1').textContent;
-    expect(titleText).toEqual('Counter');
+    expect(titleText).toEqual('Manual');
   }));
 
   it('should start with count 0, then increments by 1 when clicked', async(() => {
